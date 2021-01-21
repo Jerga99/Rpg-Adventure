@@ -17,6 +17,13 @@ public class FollowCamera : MonoBehaviour
     void LateUpdate()
     {
         Vector3 newPosition = target.transform.position + m_Offset;
+        Vector3 newRotation = new Vector3(
+            transform.eulerAngles.x,
+            target.transform.eulerAngles.y,
+            transform.eulerAngles.z
+        );
+
         transform.position = newPosition;
+        transform.eulerAngles = newRotation;
     }
 }
