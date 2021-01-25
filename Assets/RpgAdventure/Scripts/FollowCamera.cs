@@ -5,25 +5,36 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField]
-    private GameObject target;
-
-    private Vector3 m_Offset;
-
-    void Start()
-    {
-        m_Offset = transform.position - target.transform.position;  
-    }
+    private Transform target;
 
     void LateUpdate()
     {
-        Vector3 newPosition = target.transform.position + m_Offset;
-        Vector3 newRotation = new Vector3(
-            transform.eulerAngles.x,
-            target.transform.eulerAngles.y,
-            transform.eulerAngles.z
-        );
+        if (!target)
+        {
+            return;
+        }
 
-        transform.position = newPosition;
-        transform.eulerAngles = newRotation;
+        float currentRotationAngle = transform.eulerAngles.y;
+        float wantedRotationAngle = target.eulerAngles.y;
+
+        currentRotationAngle = Mathf.LerpAngle(
+            currentRotationAngle,
+            wantedRotationAngle,
+            0.5f);
+
+        transform.position = new Vector3(
+            target.position.x,
+            5.0f,
+            target.position.z);
+
+        // currentRotationAngle degreed rotation around Y axis
+        Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+
+        // rotate vector forward currentRotationAngle angle degrees around Y axis
+        Vector3 rotatedPosition = currentRotation * Vector3.forward;
+
+        transform.position -= rotatedPosition * 10;
+
+        transform.LookAt(target);
     }
 }
