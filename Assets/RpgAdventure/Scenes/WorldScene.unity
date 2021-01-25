@@ -346,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rotationSpeed: 6
+  cam: {fileID: 963194227}
 --- !u!136 &752009834
 CapsuleCollider:
   m_ObjectHideFlags: 0
