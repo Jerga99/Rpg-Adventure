@@ -11,7 +11,7 @@ namespace RpgAdventure
         public Camera cam;
 
         private Rigidbody m_Rb;
-        //private Vector3 m_Movement;
+        private Vector3 m_Movement;
         //private Quaternion m_Rotation;
 
         private void Start()    
@@ -21,27 +21,24 @@ namespace RpgAdventure
 
         void FixedUpdate()
         {
-            Vector3 dir = Vector3.zero;
-            dir.x = Input.GetAxis("Horizontal");
-            dir.z = Input.GetAxis("Vertical");
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-            if (dir == Vector3.zero)
-            {
-                return;
-            }
+            m_Movement.Set(horizontalInput, 0, verticalInput);
+            m_Movement.Normalize();
 
-            Vector3 targetDirection = cam.transform.rotation * dir;
-            targetDirection.y = 0;
+            //Vector3 desiredForward = Vector3.RotateTowards(
+            //    transform.forward,
+            //    m_Movement,
+            //    rotationSpeed * Time.fixedDeltaTime,
+            //    0);
 
-            if (dir.z >= 0)
-            {
-                transform.rotation = Quaternion.Slerp(
-                    transform.rotation,
-                    Quaternion.LookRotation(targetDirection),
-                    0.1f);
-            }
+            //Quaternion rotation = Quaternion.LookRotation(desiredForward);
 
-            m_Rb.MovePosition(m_Rb.position + targetDirection.normalized * speed * Time.fixedDeltaTime);
+
+            m_Rb.MovePosition(m_Rb.position + m_Movement * speed * Time.fixedDeltaTime);
+
+            //m_Rb.MoveRotation(rotation);
         }
     }
 }
