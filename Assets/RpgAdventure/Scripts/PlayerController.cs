@@ -30,9 +30,8 @@ namespace RpgAdventure
                 return;
             }
 
-            Vector3 camDirection = cam.transform.rotation * dir;
-            Vector3 targetDirection = new Vector3(camDirection.x, 0, camDirection.z);
-
+            Vector3 targetDirection = cam.transform.rotation * dir;
+            targetDirection.y = 0;
 
             if (dir.z >= 0)
             {
