@@ -17,10 +17,22 @@ public class FollowCamera : MonoBehaviour
         float currentRotationAngle = transform.eulerAngles.y;
         float wantedRotationAngle = target.eulerAngles.y;
 
+        Debug.Log("CURRENT: " + currentRotationAngle);
+        Debug.Log("WANTED: " + wantedRotationAngle);
+
+        // a + (b - a) * t
+        // c + (w - c) * t
+        // 1 -> 67.5 + (90 - 67.5) * 0.5 = 67.5 + 11.25 = 78.75
+        // 2 -> 78.75 + (90 - 78.75) * 0.5 = 78.75 + 5.625 = 84.375
+
+        // 0 -> Current, a
+        // 1 -> Wanted, b
         currentRotationAngle = Mathf.LerpAngle(
             currentRotationAngle,
             wantedRotationAngle,
             0.5f);
+
+        Debug.Log("FINAL: " + currentRotationAngle);
 
         transform.position = new Vector3(
             target.position.x,
