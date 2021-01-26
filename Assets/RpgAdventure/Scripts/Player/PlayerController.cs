@@ -25,11 +25,12 @@ namespace RpgAdventure
             float verticalInput = Input.GetAxis("Vertical");
 
             m_Movement.Set(horizontalInput, 0, verticalInput);
-            m_Movement.Normalize();
 
             Quaternion camRotation = m_MainCamera.transform.rotation;
-
-            m_Rb.MovePosition(m_Rb.position + m_Movement * speed * Time.fixedDeltaTime);
+            Vector3 targetDirection = camRotation * m_Movement;
+            targetDirection.y = 0;
+            
+            m_Rb.MovePosition(m_Rb.position + targetDirection.normalized * speed * Time.fixedDeltaTime);
             m_Rb.MoveRotation(Quaternion.Euler(0, camRotation.eulerAngles.y, 0));
         }
     }
