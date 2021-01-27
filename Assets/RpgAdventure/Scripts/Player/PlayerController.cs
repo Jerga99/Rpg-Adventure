@@ -11,25 +11,24 @@ namespace RpgAdventure
         public float speed;
         public float rotationSpeed;
 
+        private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
-        private Vector3 m_Movement;
         private Camera m_MainCamera;
 
         private void Awake()    
         {
             m_ChController = GetComponent<CharacterController>();
+            m_PlayerInput = GetComponent<PlayerInput>();
             m_MainCamera = Camera.main;
         }
 
         void FixedUpdate()
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
-            m_Movement.Set(horizontalInput, 0, verticalInput);
+            Vector2 moveInput = m_PlayerInput.MoveInput;
+            Vector3 localMovementInput = new Vector3(moveInput.x, 0, moveInput.y);
 
             Quaternion camRotation = m_MainCamera.transform.rotation;
-            Vector3 targetDirection = camRotation * m_Movement;
+            Vector3 targetDirection = camRotation * localMovementInput;
             targetDirection.y = 0;
 
             m_ChController.Move(targetDirection.normalized * speed * Time.fixedDeltaTime);
