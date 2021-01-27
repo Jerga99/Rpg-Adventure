@@ -8,13 +8,16 @@ namespace RpgAdventure
 {
     public class PlayerController : MonoBehaviour
     {
-        public float speed;
+        public float maxForwardSpeed = 8.0f;
         public float rotationSpeed;
 
         private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
         private Animator m_Animator;
         private Camera m_MainCamera;
+
+        private float m_DesiredForwardSpeed;
+        private float m_ForwardSpeed;
 
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
 
@@ -26,17 +29,23 @@ namespace RpgAdventure
             m_MainCamera = Camera.main;
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
-            Vector3 moveInput = m_PlayerInput.MoveInput;
-            Quaternion camRotation = m_MainCamera.transform.rotation;
-            Vector3 targetDirection = camRotation * moveInput;
-            targetDirection.y = 0;
+            ComputeMovement();
+        }
 
-            //m_ChController.Move(targetDirection.normalized * speed * Time.fixedDeltaTime);
-            m_ChController.transform.rotation = Quaternion.Euler(0, camRotation.eulerAngles.y, 0);
+        private void ComputeMovement()
+        {
+            Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
+            m_DesiredForwardSpeed = moveInput.magnitude * maxForwardSpeed;
 
-            m_Animator.SetFloat(m_HashForwardSpeed, moveInput.magnitude);
+            m_ForwardSpeed = Mathf.MoveTowards(
+                m_ForwardSpeed,
+                m_DesiredForwardSpeed,
+                Time.fixedDeltaTime);
+
+
+            m_Animator.SetFloat(m_HashForwardSpeed, m_ForwardSpeed);
         }
     }
 }
