@@ -24,11 +24,9 @@ namespace RpgAdventure
 
         void FixedUpdate()
         {
-            Vector2 moveInput = m_PlayerInput.MoveInput;
-            Vector3 localMovementInput = new Vector3(moveInput.x, 0, moveInput.y);
-
+            Vector3 moveInput = m_PlayerInput.MoveInput;
             Quaternion camRotation = m_MainCamera.transform.rotation;
-            Vector3 targetDirection = camRotation * localMovementInput;
+            Vector3 targetDirection = camRotation * moveInput;
             targetDirection.y = 0;
 
             m_ChController.Move(targetDirection.normalized * speed * Time.fixedDeltaTime);
