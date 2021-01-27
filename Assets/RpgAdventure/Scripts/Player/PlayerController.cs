@@ -17,7 +17,9 @@ namespace RpgAdventure
         private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
         private Animator m_Animator;
-        private Camera m_MainCamera;
+        private CameraController m_CameraController;
+
+        private Quaternion m_TargetRotation;
 
         private float m_DesiredForwardSpeed;
         private float m_ForwardSpeed;
@@ -29,20 +31,24 @@ namespace RpgAdventure
             m_ChController = GetComponent<CharacterController>();
             m_PlayerInput = GetComponent<PlayerInput>();
             m_Animator = GetComponent<Animator>();
-            m_MainCamera = Camera.main;
+            m_CameraController = GetComponent<CameraController>();
         }
 
         private void FixedUpdate()
         {
             ComputeMovement();
-        }
+            ComputeRotation();
 
+            if (m_PlayerInput.IsMoveInput)
+            {
+                transform.rotation = m_TargetRotation;
+            }
+        }
+ 
         private void ComputeMovement()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
             m_DesiredForwardSpeed = moveInput.magnitude * maxForwardSpeed;
-
-            Debug.Log(m_PlayerInput.IsMoveInput);
 
             float acceleration = m_PlayerInput.IsMoveInput ? k_Acceleration : k_Deceleration;
 
@@ -53,6 +59,21 @@ namespace RpgAdventure
 
 
             m_Animator.SetFloat(m_HashForwardSpeed, m_ForwardSpeed);
+        }
+
+        private void ComputeRotation()
+        {
+            Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
+
+            Vector3 cameraDirection = Quaternion.Euler(
+                0,
+                m_CameraController.freeLookCamera.m_XAxis.Value,
+                0) * Vector3.forward;
+
+            Quaternion movementRotation = Quaternion.FromToRotation(Vector3.forward, moveInput);
+            Quaternion targetRotation = Quaternion.LookRotation(movementRotation * cameraDirection);
+
+            m_TargetRotation = targetRotation;
         }
     }
 }
