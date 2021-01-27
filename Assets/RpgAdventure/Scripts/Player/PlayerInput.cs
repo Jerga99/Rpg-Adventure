@@ -14,6 +14,14 @@ namespace RpgAdventure
             }
         }
 
+        public bool IsMoveInput
+        {
+            get
+            {
+                return !Mathf.Approximately(MoveInput.magnitude, 0);
+            }
+        }
+
         // Update is called once per frame
         void Update()
         {
