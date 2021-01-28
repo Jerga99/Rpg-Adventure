@@ -13,6 +13,8 @@ namespace RpgAdventure
 
         public float maxForwardSpeed = 8.0f;
         public float rotationSpeed;
+        public float m_MaxRotationSpeed = 1200;
+        public float m_MinRotationSpeed = 800;
 
         private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
@@ -41,6 +43,12 @@ namespace RpgAdventure
 
             if (m_PlayerInput.IsMoveInput)
             {
+                float rotationSpeed = Mathf.Lerp(m_MaxRotationSpeed, m_MinRotationSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
+                m_TargetRotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    m_TargetRotation,
+                    rotationSpeed * Time.fixedDeltaTime);
+
                 transform.rotation = m_TargetRotation;
             }
         }
@@ -64,12 +72,6 @@ namespace RpgAdventure
         private void ComputeRotation()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
-
-            if (moveInput.x >= 0.7 && moveInput.z >= 0.7)
-            {
-                Debug.Log("Moving");
-            }
-
             Vector3 cameraDirection = Quaternion.Euler(
                 0,
                 m_CameraController.freeLookCamera.m_XAxis.Value,
