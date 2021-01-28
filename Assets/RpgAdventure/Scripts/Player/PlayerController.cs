@@ -15,6 +15,7 @@ namespace RpgAdventure
         public float rotationSpeed;
         public float m_MaxRotationSpeed = 1200;
         public float m_MinRotationSpeed = 800;
+        public float gravity = 20.0f;
 
         private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
@@ -25,6 +26,7 @@ namespace RpgAdventure
 
         private float m_DesiredForwardSpeed;
         private float m_ForwardSpeed;
+        private float m_VerticalSpeed;
 
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
 
@@ -38,7 +40,8 @@ namespace RpgAdventure
 
         private void FixedUpdate()
         {
-            ComputeMovement();
+            ComputeForwardMovement();
+            ComputeVerticalMovement();
             ComputeRotation();
 
             if (m_PlayerInput.IsMoveInput)
@@ -55,10 +58,17 @@ namespace RpgAdventure
 
         private void OnAnimatorMove()
         {
-            m_ChController.Move(m_Animator.deltaPosition);
+            Vector3 movement = m_Animator.deltaPosition;
+            movement += m_VerticalSpeed * Vector3.up * Time.fixedDeltaTime;
+            m_ChController.Move(movement);
         }
 
-        private void ComputeMovement()
+        private void ComputeVerticalMovement()
+        {
+            m_VerticalSpeed = -gravity;
+        }
+
+        private void ComputeForwardMovement()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
             m_DesiredForwardSpeed = moveInput.magnitude * maxForwardSpeed;
