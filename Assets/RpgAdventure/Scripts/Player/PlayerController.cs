@@ -52,7 +52,12 @@ namespace RpgAdventure
                 transform.rotation = m_TargetRotation;
             }
         }
- 
+
+        private void OnAnimatorMove()
+        {
+            m_ChController.Move(m_Animator.deltaPosition);
+        }
+
         private void ComputeMovement()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
