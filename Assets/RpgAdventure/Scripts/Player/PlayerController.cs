@@ -77,8 +77,16 @@ namespace RpgAdventure
                 m_CameraController.freeLookCamera.m_XAxis.Value,
                 0) * Vector3.forward;
 
-            Quaternion movementRotation = Quaternion.FromToRotation(Vector3.forward, moveInput);
-            Quaternion targetRotation = Quaternion.LookRotation(movementRotation * cameraDirection);
+            Quaternion targetRotation;
+
+            if (Mathf.Approximately(Vector3.Dot(moveInput, Vector3.forward), -1.0f))
+            {
+                targetRotation = Quaternion.LookRotation(-cameraDirection);
+            } else
+            {
+                Quaternion movementRotation = Quaternion.FromToRotation(Vector3.forward, moveInput);
+                targetRotation = Quaternion.LookRotation(movementRotation * cameraDirection);
+            }
 
             m_TargetRotation = targetRotation;
         }
