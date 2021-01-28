@@ -65,6 +65,11 @@ namespace RpgAdventure
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
 
+            if (moveInput.x >= 0.7 && moveInput.z >= 0.7)
+            {
+                Debug.Log("Moving");
+            }
+
             Vector3 cameraDirection = Quaternion.Euler(
                 0,
                 m_CameraController.freeLookCamera.m_XAxis.Value,
