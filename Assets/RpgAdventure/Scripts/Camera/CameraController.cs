@@ -5,8 +5,16 @@ namespace RpgAdventure
 {
     public class CameraController : MonoBehaviour
     {
-        
-        public CinemachineFreeLook freeLookCamera;
+        [SerializeField]
+        CinemachineFreeLook freeLookCamera;
+
+        public CinemachineFreeLook PlayerCam
+        {
+            get
+            {
+                return freeLookCamera;
+            }
+        }
 
         // Update is called once per frame
         void Update()
