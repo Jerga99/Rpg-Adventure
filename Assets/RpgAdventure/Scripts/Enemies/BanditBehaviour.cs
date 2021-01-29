@@ -41,10 +41,13 @@ namespace RpgAdventure
             Color c = new Color(0.8f, 0, 0, 0.4f);
             UnityEditor.Handles.color = c;
 
+            Debug.Log("FORWARD " + transform.forward);
             Vector3 rotatedForward = Quaternion.Euler(
                 0,
                 -detectionAngle * 0.5f,
                 0) * transform.forward;
+
+            Debug.Log("rotatedForward " + rotatedForward);
 
             UnityEditor.Handles.DrawSolidArc(
                 transform.position,
