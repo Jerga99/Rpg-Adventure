@@ -8,8 +8,13 @@ namespace RpgAdventure
 {
     public class PlayerController : MonoBehaviour
     {
-        const float k_Acceleration = 20.0f;
-        const float k_Deceleration = 35.0f;
+        public static PlayerController Instance
+        {
+            get
+            {
+                return s_Instance;
+            }
+        }
 
         public float maxForwardSpeed = 8.0f;
         public float rotationSpeed;
@@ -17,11 +22,12 @@ namespace RpgAdventure
         public float m_MinRotationSpeed = 800;
         public float gravity = 20.0f;
 
+
+        private static PlayerController s_Instance;
         private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
         private Animator m_Animator;
         private CameraController m_CameraController;
-
         private Quaternion m_TargetRotation;
 
         private float m_DesiredForwardSpeed;
@@ -30,12 +36,17 @@ namespace RpgAdventure
 
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
 
+        const float k_Acceleration = 20.0f;
+        const float k_Deceleration = 35.0f;
+
         private void Awake()    
         {
             m_ChController = GetComponent<CharacterController>();
             m_PlayerInput = GetComponent<PlayerInput>();
             m_Animator = GetComponent<Animator>();
             m_CameraController = Camera.main.GetComponent<CameraController>();
+
+            s_Instance = this;
         }
 
         private void FixedUpdate()

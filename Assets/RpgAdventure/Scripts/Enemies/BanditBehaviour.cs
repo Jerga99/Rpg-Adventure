@@ -5,9 +5,9 @@ namespace RpgAdventure
     public class BanditBehaviour : MonoBehaviour
     {
 
-        private void Awake()
+        private void Start()
         {
-            Debug.Log("Bandit is Awaken!");
+            Debug.Log(PlayerController.Instance);
         }
     }
 }
