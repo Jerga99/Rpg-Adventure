@@ -28,7 +28,7 @@ namespace RpgAdventure
                 if (Vector3.Dot(toPlayer.normalized, transform.forward) >
                     Mathf.Cos(detectionAngle * 0.5f * Mathf.Deg2Rad))
                 {
-                    Debug.Log("Player Has been detected!!!!");
+                    Debug.Log("Player has been detected!");
                 }
             }
 
