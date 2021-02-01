@@ -7,9 +7,16 @@ namespace RpgAdventure
         public float detectionRadius = 10.0f;
         public float detectionAngle = 90.0f;
 
+        private PlayerController m_Target;
+
         private void Update()
         {
-            LookForPlayer();
+            m_Target = LookForPlayer();
+
+            if (!m_Target) { return; }
+
+            Vector3 targetPosition = m_Target.transform.position;
+            Debug.Log(targetPosition);
         }
 
         private PlayerController LookForPlayer() {
@@ -28,7 +35,7 @@ namespace RpgAdventure
                 if (Vector3.Dot(toPlayer.normalized, transform.forward) >
                     Mathf.Cos(detectionAngle * 0.5f * Mathf.Deg2Rad))
                 {
-                    Debug.Log("Player has been detected!");
+                    return PlayerController.Instance;
                 }
             }
 
