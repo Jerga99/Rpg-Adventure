@@ -7,9 +7,11 @@ namespace RpgAdventure
     {
         public float detectionRadius = 10.0f;
         public float detectionAngle = 90.0f;
+        public float timeToStopPursuit = 2.0f;
 
         private PlayerController m_Target;
         private NavMeshAgent m_NavMestAgent;
+        private float m_TimeSinceLostTarget = 0;
 
         private void Awake()
         {
@@ -18,12 +20,32 @@ namespace RpgAdventure
 
         private void Update()
         {
-            m_Target = LookForPlayer();
+            var target = LookForPlayer();
 
-            if (!m_Target) { return; }
+            if (m_Target == null)
+            {
+                if (target != null)
+                {
+                    m_Target = target;
+                }
+            } else
+            {
+                m_NavMestAgent.SetDestination(m_Target.transform.position);
 
-            Vector3 targetPosition = m_Target.transform.position;
-            m_NavMestAgent.SetDestination(targetPosition);
+                if (target == null)
+                {
+                    m_TimeSinceLostTarget += Time.deltaTime;
+
+                    if (m_TimeSinceLostTarget >= timeToStopPursuit)
+                    {
+                        m_Target = null;
+                        Debug.Log("Stopping the enemy!");
+                    }
+                } else
+                {
+                    m_TimeSinceLostTarget = 0;
+                }
+            }
         }
 
         private PlayerController LookForPlayer() {

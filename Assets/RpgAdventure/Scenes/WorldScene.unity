@@ -890,7 +890,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
+  m_Speed: 3
   m_Acceleration: 7
   avoidancePriority: 50
   m_AngularSpeed: 900
@@ -2008,7 +2008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
       propertyPath: detectionRadius
-      value: 17
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
+      propertyPath: timeToStopPursuit
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
