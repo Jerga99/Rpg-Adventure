@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RpgAdventure
 {
@@ -8,6 +9,12 @@ namespace RpgAdventure
         public float detectionAngle = 90.0f;
 
         private PlayerController m_Target;
+        private NavMeshAgent m_NavMestAgent;
+
+        private void Awake()
+        {
+            m_NavMestAgent = GetComponent<NavMeshAgent>();
+        }
 
         private void Update()
         {
@@ -16,7 +23,7 @@ namespace RpgAdventure
             if (!m_Target) { return; }
 
             Vector3 targetPosition = m_Target.transform.position;
-            Debug.Log(targetPosition);
+            m_NavMestAgent.SetDestination(targetPosition);
         }
 
         private PlayerController LookForPlayer() {
