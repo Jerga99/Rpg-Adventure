@@ -13,12 +13,16 @@ namespace RpgAdventure
 
         private PlayerController m_Target;
         private NavMeshAgent m_NavMestAgent;
+        private Animator m_Animator;
         private float m_TimeSinceLostTarget = 0;
         private Vector3 m_OriginPosition;
+
+        private readonly int m_HashInPursuit = Animator.StringToHash("InPursuit");
 
         private void Awake()
         {
             m_NavMestAgent = GetComponent<NavMeshAgent>();
+            m_Animator = GetComponent<Animator>();
             m_OriginPosition = transform.position;
         }
 
@@ -35,6 +39,7 @@ namespace RpgAdventure
             } else
             {
                 m_NavMestAgent.SetDestination(m_Target.transform.position);
+                m_Animator.SetBool(m_HashInPursuit, true);
 
                 if (target == null)
                 {
@@ -44,6 +49,7 @@ namespace RpgAdventure
                     {
                         m_Target = null;
                         m_NavMestAgent.isStopped = true;
+                        m_Animator.SetBool(m_HashInPursuit, false);
                         StartCoroutine(WaitOnPursuit());
                     }
                 } else
