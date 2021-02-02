@@ -37,7 +37,8 @@ namespace RpgAdventure
                 {
                     m_Target = target;
                 }
-            } else
+            }
+            else
             {
                 m_NavMestAgent.SetDestination(m_Target.transform.position);
                 m_Animator.SetBool(m_HashInPursuit, true);
@@ -53,7 +54,8 @@ namespace RpgAdventure
                         m_Animator.SetBool(m_HashInPursuit, false);
                         StartCoroutine(WaitOnPursuit());
                     }
-                } else
+                }
+                else
                 {
                     m_TimeSinceLostTarget = 0;
                 }
@@ -72,7 +74,8 @@ namespace RpgAdventure
             m_NavMestAgent.SetDestination(m_OriginPosition);
         }
 
-        private PlayerController LookForPlayer() {
+        private PlayerController LookForPlayer()
+        {
 
             if (PlayerController.Instance == null)
             {
