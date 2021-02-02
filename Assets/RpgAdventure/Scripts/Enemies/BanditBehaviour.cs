@@ -9,6 +9,7 @@ namespace RpgAdventure
         public PlayerScanner playerScanner;
         public float timeToStopPursuit = 2.0f;
         public float timeToWaitOnPursuit = 2.0f;
+        public float attackDistance = 1.1f;
 
         private PlayerController m_Target;
         private EnemyController m_EnemyController;
@@ -40,8 +41,17 @@ namespace RpgAdventure
             }
             else
             {
-                m_EnemyController.SetFollowTarget(m_Target.transform.position);
-                m_Animator.SetBool(m_HashInPursuit, true);
+                Vector3 toTarget = m_Target.transform.position - transform.position;
+                if (toTarget.magnitude <= attackDistance)
+                {
+                    Debug.Log("Attacking!");
+                    m_Animator.SetBool(m_HashInPursuit, false);
+                }
+                else
+                {
+                    m_Animator.SetBool(m_HashInPursuit, true);
+                    m_EnemyController.SetFollowTarget(m_Target.transform.position);
+                }
 
                 if (target == null)
                 {
