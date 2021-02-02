@@ -12,7 +12,8 @@ namespace RpgAdventure
         public float timeToWaitOnPursuit = 2.0f;
 
         private PlayerController m_Target;
-        private NavMeshAgent m_NavMestAgent;
+        private EnemyController m_EnemyController;
+
         private Animator m_Animator;
         private float m_TimeSinceLostTarget = 0;
         private Vector3 m_OriginPosition;
@@ -22,7 +23,7 @@ namespace RpgAdventure
 
         private void Awake()
         {
-            m_NavMestAgent = GetComponent<NavMeshAgent>();
+            m_EnemyController = GetComponent<EnemyController>();
             m_Animator = GetComponent<Animator>();
             m_OriginPosition = transform.position;
         }
@@ -40,7 +41,7 @@ namespace RpgAdventure
             }
             else
             {
-                m_NavMestAgent.SetDestination(m_Target.transform.position);
+                m_EnemyController.SetFollowTarget(m_Target.transform.position);
                 m_Animator.SetBool(m_HashInPursuit, true);
 
                 if (target == null)
@@ -50,7 +51,6 @@ namespace RpgAdventure
                     if (m_TimeSinceLostTarget >= timeToStopPursuit)
                     {
                         m_Target = null;
-                        m_NavMestAgent.isStopped = true;
                         m_Animator.SetBool(m_HashInPursuit, false);
                         StartCoroutine(WaitOnPursuit());
                     }
@@ -70,8 +70,7 @@ namespace RpgAdventure
         private IEnumerator WaitOnPursuit()
         {
             yield return new WaitForSeconds(timeToWaitOnPursuit);
-            m_NavMestAgent.isStopped = false;
-            m_NavMestAgent.SetDestination(m_OriginPosition);
+            m_EnemyController.SetFollowTarget(m_OriginPosition);
         }
 
         private PlayerController LookForPlayer()
