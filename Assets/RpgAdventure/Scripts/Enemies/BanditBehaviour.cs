@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,14 +9,17 @@ namespace RpgAdventure
         public float detectionRadius = 10.0f;
         public float detectionAngle = 90.0f;
         public float timeToStopPursuit = 2.0f;
+        public float timeToWaitOnPursuit = 2.0f;
 
         private PlayerController m_Target;
         private NavMeshAgent m_NavMestAgent;
         private float m_TimeSinceLostTarget = 0;
+        private Vector3 m_OriginPosition;
 
         private void Awake()
         {
             m_NavMestAgent = GetComponent<NavMeshAgent>();
+            m_OriginPosition = transform.position;
         }
 
         private void Update()
@@ -39,13 +43,21 @@ namespace RpgAdventure
                     if (m_TimeSinceLostTarget >= timeToStopPursuit)
                     {
                         m_Target = null;
-                        Debug.Log("Stopping the enemy!");
+                        m_NavMestAgent.isStopped = true;
+                        StartCoroutine(WaitOnPursuit());
                     }
                 } else
                 {
                     m_TimeSinceLostTarget = 0;
                 }
             }
+        }
+
+        private IEnumerator WaitOnPursuit()
+        {
+            yield return new WaitForSeconds(timeToWaitOnPursuit);
+            m_NavMestAgent.isStopped = false;
+            m_NavMestAgent.SetDestination(m_OriginPosition);
         }
 
         private PlayerController LookForPlayer() {
