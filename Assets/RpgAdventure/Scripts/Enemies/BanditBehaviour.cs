@@ -6,8 +6,7 @@ namespace RpgAdventure
 {
     public class BanditBehaviour : MonoBehaviour
     {
-        public float detectionRadius = 10.0f;
-        public float detectionAngle = 90.0f;
+        public PlayerScanner playerScanner;
         public float timeToStopPursuit = 2.0f;
         public float timeToWaitOnPursuit = 2.0f;
 
@@ -30,7 +29,7 @@ namespace RpgAdventure
 
         private void Update()
         {
-            var target = LookForPlayer();
+            var target = playerScanner.Detect(transform);
 
             if (m_Target == null)
             {
@@ -73,30 +72,6 @@ namespace RpgAdventure
             m_EnemyController.SetFollowTarget(m_OriginPosition);
         }
 
-        private PlayerController LookForPlayer()
-        {
-
-            if (PlayerController.Instance == null)
-            {
-                return null;
-            }
-
-            Vector3 enemyPosition = transform.position;
-            Vector3 toPlayer = PlayerController.Instance.transform.position - enemyPosition;
-            toPlayer.y = 0;
-
-            if (toPlayer.magnitude <= detectionRadius)
-            {
-                if (Vector3.Dot(toPlayer.normalized, transform.forward) >
-                    Mathf.Cos(detectionAngle * 0.5f * Mathf.Deg2Rad))
-                {
-                    return PlayerController.Instance;
-                }
-            }
-
-            return null;
-        }
-
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
@@ -106,15 +81,15 @@ namespace RpgAdventure
 
             Vector3 rotatedForward = Quaternion.Euler(
                 0,
-                -detectionAngle * 0.5f,
+                -playerScanner.detectionAngle * 0.5f,
                 0) * transform.forward;
 
             UnityEditor.Handles.DrawSolidArc(
                 transform.position,
                 Vector3.up,
                 rotatedForward,
-                detectionAngle,
-                detectionRadius);
+                playerScanner.detectionAngle,
+                playerScanner.detectionRadius);
 
         }
 #endif

@@ -668,7 +668,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534875510}
-  m_LocalRotation: {x: 0.18463638, y: 8.2709633e-16, z: -4.3391574e-16, w: 0.9828069}
+  m_LocalRotation: {x: 0.1846364, y: -0.000000014644965, z: 0.000000002751297, w: 0.9828069}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2036,7 +2036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
       propertyPath: timeToStopPursuit
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
+      propertyPath: timeToWaitOnPursuit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
