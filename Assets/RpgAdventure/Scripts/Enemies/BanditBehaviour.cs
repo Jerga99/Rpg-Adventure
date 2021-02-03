@@ -45,12 +45,13 @@ namespace RpgAdventure
                 Vector3 toTarget = m_Target.transform.position - transform.position;
                 if (toTarget.magnitude <= attackDistance)
                 {
+                    m_EnemyController.StopFollowTarget();
                     m_Animator.SetTrigger(m_HashAttack);
                 }
                 else
                 {
                     m_Animator.SetBool(m_HashInPursuit, true);
-                    m_EnemyController.SetFollowTarget(m_Target.transform.position);
+                    m_EnemyController.FollowTarget(m_Target.transform.position);
                 }
 
                 if (target == null)
@@ -79,7 +80,7 @@ namespace RpgAdventure
         private IEnumerator WaitOnPursuit()
         {
             yield return new WaitForSeconds(timeToWaitOnPursuit);
-            m_EnemyController.SetFollowTarget(m_OriginPosition);
+            m_EnemyController.FollowTarget(m_OriginPosition);
         }
 
 
