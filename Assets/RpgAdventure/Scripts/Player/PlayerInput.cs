@@ -5,6 +5,7 @@ namespace RpgAdventure
     public class PlayerInput : MonoBehaviour
     {
         private Vector3 m_Movement;
+        private bool m_IsAttack;
 
         public Vector3 MoveInput
         {
@@ -22,6 +23,14 @@ namespace RpgAdventure
             }
         }
 
+        public bool IsAttack
+        {
+            get
+            {
+                return m_IsAttack;
+            }
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -30,6 +39,11 @@ namespace RpgAdventure
                 0,
                 Input.GetAxis("Vertical")
             );
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                m_IsAttack = true;
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ namespace RpgAdventure
         const float k_Acceleration = 20.0f;
         const float k_Deceleration = 35.0f;
 
-        private void Awake()    
+        private void Awake()
         {
             m_ChController = GetComponent<CharacterController>();
             m_PlayerInput = GetComponent<PlayerInput>();
@@ -64,6 +64,11 @@ namespace RpgAdventure
                     rotationSpeed * Time.fixedDeltaTime);
 
                 transform.rotation = m_TargetRotation;
+            }
+
+            if (m_PlayerInput.IsAttack)
+            {
+                Debug.Log("Is attacking!");
             }
         }
 
@@ -108,7 +113,8 @@ namespace RpgAdventure
             if (Mathf.Approximately(Vector3.Dot(moveInput, Vector3.forward), -1.0f))
             {
                 targetRotation = Quaternion.LookRotation(-cameraDirection);
-            } else
+            }
+            else
             {
                 Quaternion movementRotation = Quaternion.FromToRotation(Vector3.forward, moveInput);
                 targetRotation = Quaternion.LookRotation(movementRotation * cameraDirection);
