@@ -875,45 +875,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &632667619 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7359466674846650532, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-  m_PrefabInstance: {fileID: 372196754754978679}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &632667620
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632667619}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 900
-  avoidancePriority: 50
-  m_AngularSpeed: 900
-  m_StoppingDistance: 1.1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.8
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &632667621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632667619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d93b246a42d642aab1300c08fd0a762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1771,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012662953}
-  m_LocalRotation: {x: 0.20248261, y: 0.000000014592495, z: -0.0000000030172256, w: 0.9792859}
+  m_LocalRotation: {x: 0.20248261, y: 0.000000014592496, z: -0.0000000030172258, w: 0.9792859}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1966,10 +1927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandit
       objectReference: {fileID: 0}
-    - target: {fileID: 7361422595351845786, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 7365208729025374028, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2013,34 +1970,6 @@ PrefabInstance:
     - target: {fileID: 7365208729025374028, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455050205690551018, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3bd7aaf3beb6644d3bf5149439207147, type: 2}
-    - target: {fileID: 7455050205690551018, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: m_UpdateMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455050205690551018, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: detectionAngle
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: detectionRadius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: timeToStopPursuit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9221836228462021114, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: timeToWaitOnPursuit
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
@@ -2098,10 +2027,6 @@ PrefabInstance:
     - target: {fileID: 3268920856964924041, guid: 1533e95c8efdc44169d65fc0b68bee43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8597859999095756399, guid: 1533e95c8efdc44169d65fc0b68bee43, type: 3}
-      propertyPath: m_SlopeLimit
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1533e95c8efdc44169d65fc0b68bee43, type: 3}
