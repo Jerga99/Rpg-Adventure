@@ -1923,10 +1923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 632667620, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7359466674846650532, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
       propertyPath: m_Name
       value: Bandit

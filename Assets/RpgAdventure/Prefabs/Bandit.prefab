@@ -1575,6 +1575,7 @@ GameObject:
   - component: {fileID: 9221836228462021114}
   - component: {fileID: 632667620}
   - component: {fileID: 632667621}
+  - component: {fileID: 7087370820473291090}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Untagged
@@ -1695,7 +1696,7 @@ NavMeshAgent:
   m_Acceleration: 900
   avoidancePriority: 50
   m_AngularSpeed: 900
-  m_StoppingDistance: 1.1
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1715,6 +1716,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d93b246a42d642aab1300c08fd0a762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7087370820473291090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359466674846650532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac5d40c5d0f745378fbf2b677802cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 100
 --- !u!1 &7359466900700284348
 GameObject:
   m_ObjectHideFlags: 0
