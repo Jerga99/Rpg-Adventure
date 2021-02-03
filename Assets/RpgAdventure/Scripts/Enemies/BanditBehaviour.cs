@@ -45,7 +45,6 @@ namespace RpgAdventure
                 Vector3 toTarget = m_Target.transform.position - transform.position;
                 if (toTarget.magnitude <= attackDistance)
                 {
-                    m_Animator.SetBool(m_HashInPursuit, false);
                     m_Animator.SetTrigger(m_HashAttack);
                 }
                 else
