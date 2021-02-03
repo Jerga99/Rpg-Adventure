@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace RpgAdventure
@@ -40,10 +41,17 @@ namespace RpgAdventure
                 Input.GetAxis("Vertical")
             );
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && !m_IsAttack)
             {
-                m_IsAttack = true;
+                StartCoroutine(AttackAndWait());
             }
+        }
+
+        private IEnumerator AttackAndWait()
+        {
+            m_IsAttack = true;
+            yield return new WaitForSeconds(0.03f);
+            m_IsAttack = false;
         }
     }
 }
