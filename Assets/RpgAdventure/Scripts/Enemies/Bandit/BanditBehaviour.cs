@@ -17,6 +17,7 @@ namespace RpgAdventure
         private Animator m_Animator;
         private float m_TimeSinceLostTarget = 0;
         private Vector3 m_OriginPosition;
+        private Quaternion m_OriginRotation;
 
         private readonly int m_HashInPursuit = Animator.StringToHash("InPursuit");
         private readonly int m_HashNearBase = Animator.StringToHash("NearBase");
@@ -26,7 +27,9 @@ namespace RpgAdventure
         {
             m_EnemyController = GetComponent<EnemyController>();
             m_Animator = GetComponent<Animator>();
+
             m_OriginPosition = transform.position;
+            m_OriginRotation = transform.rotation;
         }
 
         private void Update()
@@ -74,7 +77,18 @@ namespace RpgAdventure
             Vector3 toBase = m_OriginPosition - transform.position;
             toBase.y = 0;
 
-            m_Animator.SetBool(m_HashNearBase, toBase.magnitude < 0.01f);
+            bool nearBase = toBase.magnitude < 0.01f;
+            m_Animator.SetBool(m_HashNearBase, nearBase);
+
+            if (nearBase)
+            {
+                Quaternion targetRotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    m_OriginRotation,
+                    360 * Time.deltaTime);
+
+                transform.rotation = targetRotation;
+            }
         }
 
         private IEnumerator WaitOnPursuit()
