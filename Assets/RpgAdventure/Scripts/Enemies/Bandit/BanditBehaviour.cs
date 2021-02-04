@@ -11,7 +11,15 @@ namespace RpgAdventure
         public float timeToWaitOnPursuit = 2.0f;
         public float attackDistance = 1.1f;
 
-        private PlayerController m_Target;
+        public bool HasFollowTarget
+        {
+            get
+            {
+                return m_FollowTarget != null;
+            }
+        }
+
+        private PlayerController m_FollowTarget;
         private EnemyController m_EnemyController;
 
         private Animator m_Animator;
@@ -34,46 +42,57 @@ namespace RpgAdventure
 
         private void Update()
         {
-            var target = playerScanner.Detect(transform);
+            var detectedTarget = playerScanner.Detect(transform);
+            bool hasDetectedTarget = detectedTarget != null;
 
-            if (m_Target == null)
+            if (hasDetectedTarget) { m_FollowTarget = detectedTarget; }
+
+            if (HasFollowTarget)
             {
-                if (target != null)
-                {
-                    m_Target = target;
-                }
-            }
-            else
-            {
-                Vector3 toTarget = m_Target.transform.position - transform.position;
-                if (toTarget.magnitude <= attackDistance)
-                {
-                    m_EnemyController.StopFollowTarget();
-                    m_Animator.SetTrigger(m_HashAttack);
-                }
-                else
-                {
-                    m_Animator.SetBool(m_HashInPursuit, true);
-                    m_EnemyController.FollowTarget(m_Target.transform.position);
-                }
+                AttackOrFollowTarget();
 
-                if (target == null)
-                {
-                    m_TimeSinceLostTarget += Time.deltaTime;
-
-                    if (m_TimeSinceLostTarget >= timeToStopPursuit)
-                    {
-                        m_Target = null;
-                        m_Animator.SetBool(m_HashInPursuit, false);
-                        StartCoroutine(WaitOnPursuit());
-                    }
-                }
-                else
+                if (hasDetectedTarget)
                 {
                     m_TimeSinceLostTarget = 0;
                 }
+                else
+                {
+                    StopPursuit();
+                }
             }
 
+            CheckIfNearBase();
+        }
+
+        private void StopPursuit()
+        {
+            m_TimeSinceLostTarget += Time.deltaTime;
+
+            if (m_TimeSinceLostTarget >= timeToStopPursuit)
+            {
+                m_FollowTarget = null;
+                m_Animator.SetBool(m_HashInPursuit, false);
+                StartCoroutine(WaitOnPursuit());
+            }
+        }
+
+        private void AttackOrFollowTarget()
+        {
+            Vector3 toTarget = m_FollowTarget.transform.position - transform.position;
+            if (toTarget.magnitude <= attackDistance)
+            {
+                m_EnemyController.StopFollowTarget();
+                m_Animator.SetTrigger(m_HashAttack);
+            }
+            else
+            {
+                m_Animator.SetBool(m_HashInPursuit, true);
+                m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
+            }
+        }
+
+        private void CheckIfNearBase()
+        {
             Vector3 toBase = m_OriginPosition - transform.position;
             toBase.y = 0;
 
