@@ -1771,7 +1771,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012662953}
-  m_LocalRotation: {x: 0.2024826, y: -3.4791224e-15, z: 2.7527348e-16, w: 0.9792859}
+  m_LocalRotation: {x: 0.2024826, y: -2.6277397e-15, z: 3.5968134e-16, w: 0.9792859}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1820,6 +1820,17 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 55834259}
+--- !u!114 &2102502789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4582820952178162711, guid: 1533e95c8efdc44169d65fc0b68bee43, type: 3}
+  m_PrefabInstance: {fileID: 6492790834573021435}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0149915118ea4951bbdd7aa78325340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125821361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8597859999095756400, guid: 1533e95c8efdc44169d65fc0b68bee43, type: 3}
+      propertyPath: meleeWeapon
+      value: 
+      objectReference: {fileID: 2102502789}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1533e95c8efdc44169d65fc0b68bee43, type: 3}
 --- !u!4 &8594711893550142066 stripped

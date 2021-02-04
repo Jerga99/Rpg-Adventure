@@ -16,6 +16,7 @@ namespace RpgAdventure
             }
         }
 
+        public MeleeWeapon meleeWeapon;
         public float maxForwardSpeed = 8.0f;
         public float rotationSpeed;
         public float m_MaxRotationSpeed = 1200;
@@ -71,6 +72,7 @@ namespace RpgAdventure
             if (m_PlayerInput.IsAttack)
             {
                 m_Animator.SetTrigger(m_HashMeleeAttack);
+                meleeWeapon.BeginAttack();
             }
         }
 
