@@ -17,9 +17,37 @@ namespace RpgAdventure
         public int damage = 10;
         public AttackPoint[] attackPoints = new AttackPoint[0];
 
+        private bool m_IsAttack = false;
+        private Vector3[] m_OriginAttackPos;
+
+        private void FixedUpdate()
+        {
+            if (m_IsAttack)
+            {
+                for (int i = 0; i < attackPoints.Length; i++)
+                {
+                    AttackPoint ap = attackPoints[i];
+                    Vector3 worldPos =
+                        ap.rootTransform.position + ap.rootTransform.TransformVector(ap.offset);
+                    Vector3 attackVector = worldPos - m_OriginAttackPos[i];
+
+                    Ray r = new Ray(worldPos, attackVector);
+                    Debug.DrawRay(worldPos, attackVector, Color.red, 4.0f);
+                }
+            }
+        }
+
         public void BeginAttack()
         {
-            Debug.Log("Weapon is swinging!");
+            m_IsAttack = true;
+            m_OriginAttackPos = new Vector3[attackPoints.Length];
+
+            for (int i = 0; i < attackPoints.Length; i++)
+            {
+                AttackPoint ap = attackPoints[i];
+                m_OriginAttackPos[i] =
+                    ap.rootTransform.position + ap.rootTransform.TransformDirection(ap.offset);
+            }
         }
 
 #if UNITY_EDITOR
