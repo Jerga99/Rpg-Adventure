@@ -42,6 +42,11 @@ namespace RpgAdventure
 
         private void Update()
         {
+            GuardPosition();
+        }
+
+        private void GuardPosition()
+        {
             var detectedTarget = playerScanner.Detect(transform);
             bool hasDetectedTarget = detectedTarget != null;
 
@@ -72,7 +77,7 @@ namespace RpgAdventure
             {
                 m_FollowTarget = null;
                 m_Animator.SetBool(m_HashInPursuit, false);
-                StartCoroutine(WaitOnPursuit());
+                StartCoroutine(WaitBeforeReturn());
             }
         }
 
@@ -81,20 +86,30 @@ namespace RpgAdventure
             Vector3 toTarget = m_FollowTarget.transform.position - transform.position;
             if (toTarget.magnitude <= attackDistance)
             {
-                var toTargetRotation = Quaternion.LookRotation(toTarget);
-                transform.rotation = Quaternion.RotateTowards(
-                    transform.rotation,
-                    toTargetRotation,
-                    360 * Time.deltaTime);
-
-                m_EnemyController.StopFollowTarget();
-                m_Animator.SetTrigger(m_HashAttack);
+                AttackTarget(toTarget);
             }
             else
             {
-                m_Animator.SetBool(m_HashInPursuit, true);
-                m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
+                FollowTarget();
             }
+        }
+
+        private void AttackTarget(Vector3 toTarget)
+        {
+            var toTargetRotation = Quaternion.LookRotation(toTarget);
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                toTargetRotation,
+                360 * Time.deltaTime);
+
+            m_EnemyController.StopFollowTarget();
+            m_Animator.SetTrigger(m_HashAttack);
+        }
+
+        private void FollowTarget()
+        {
+            m_Animator.SetBool(m_HashInPursuit, true);
+            m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
         }
 
         private void CheckIfNearBase()
@@ -116,7 +131,7 @@ namespace RpgAdventure
             }
         }
 
-        private IEnumerator WaitOnPursuit()
+        private IEnumerator WaitBeforeReturn()
         {
             yield return new WaitForSeconds(timeToWaitOnPursuit);
             m_EnemyController.FollowTarget(m_OriginPosition);
