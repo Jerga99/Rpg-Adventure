@@ -81,6 +81,12 @@ namespace RpgAdventure
             Vector3 toTarget = m_FollowTarget.transform.position - transform.position;
             if (toTarget.magnitude <= attackDistance)
             {
+                var toTargetRotation = Quaternion.LookRotation(toTarget);
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    toTargetRotation,
+                    360 * Time.deltaTime);
+
                 m_EnemyController.StopFollowTarget();
                 m_Animator.SetTrigger(m_HashAttack);
             }
