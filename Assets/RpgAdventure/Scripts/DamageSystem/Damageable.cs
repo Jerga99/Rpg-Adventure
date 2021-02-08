@@ -9,6 +9,6 @@ public class Damageable : MonoBehaviour
 
     public void ApplyDamage()
     {
-        Debug.Log("Applying Damage!");
+        //Debug.Log("Applying Damage!");
     }
 }
