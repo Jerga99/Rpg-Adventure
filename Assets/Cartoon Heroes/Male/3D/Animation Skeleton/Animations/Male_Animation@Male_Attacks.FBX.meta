@@ -1,125 +1,347 @@
 fileFormatVersion: 2
 guid: 176fac875603d3f419eb970f987aeab5
-timeCreated: 1577390387
-licenseType: Store
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Character
-    100002: Character Head
-    100004: Character L Calf
-    100006: Character L Clavicle
-    100008: Character L Finger0
-    100010: Character L Finger01
-    100012: Character L Finger02
-    100014: Character L Finger1
-    100016: Character L Finger11
-    100018: Character L Finger12
-    100020: Character L Finger2
-    100022: Character L Finger21
-    100024: Character L Finger22
-    100026: Character L Finger3
-    100028: Character L Finger31
-    100030: Character L Finger32
-    100032: Character L Finger4
-    100034: Character L Finger41
-    100036: Character L Finger42
-    100038: Character L Foot
-    100040: Character L Forearm
-    100042: Character L Hand
-    100044: Character L Thigh
-    100046: Character L Toe0
-    100048: Character L UpperArm
-    100050: Character Neck
-    100052: Character Pelvis
-    100054: Character R Calf
-    100056: Character R Clavicle
-    100058: Character R Finger0
-    100060: Character R Finger01
-    100062: Character R Finger02
-    100064: Character R Finger1
-    100066: Character R Finger11
-    100068: Character R Finger12
-    100070: Character R Finger2
-    100072: Character R Finger21
-    100074: Character R Finger22
-    100076: Character R Finger3
-    100078: Character R Finger31
-    100080: Character R Finger32
-    100082: Character R Finger4
-    100084: Character R Finger41
-    100086: Character R Finger42
-    100088: Character R Foot
-    100090: Character R Forearm
-    100092: Character R Hand
-    100094: Character R Thigh
-    100096: Character R Toe0
-    100098: Character R UpperArm
-    100100: Character Spine
-    100102: Character Spine1
-    100104: Character Spine2
-    100106: //RootNode
-    400000: Character
-    400002: Character Head
-    400004: Character L Calf
-    400006: Character L Clavicle
-    400008: Character L Finger0
-    400010: Character L Finger01
-    400012: Character L Finger02
-    400014: Character L Finger1
-    400016: Character L Finger11
-    400018: Character L Finger12
-    400020: Character L Finger2
-    400022: Character L Finger21
-    400024: Character L Finger22
-    400026: Character L Finger3
-    400028: Character L Finger31
-    400030: Character L Finger32
-    400032: Character L Finger4
-    400034: Character L Finger41
-    400036: Character L Finger42
-    400038: Character L Foot
-    400040: Character L Forearm
-    400042: Character L Hand
-    400044: Character L Thigh
-    400046: Character L Toe0
-    400048: Character L UpperArm
-    400050: Character Neck
-    400052: Character Pelvis
-    400054: Character R Calf
-    400056: Character R Clavicle
-    400058: Character R Finger0
-    400060: Character R Finger01
-    400062: Character R Finger02
-    400064: Character R Finger1
-    400066: Character R Finger11
-    400068: Character R Finger12
-    400070: Character R Finger2
-    400072: Character R Finger21
-    400074: Character R Finger22
-    400076: Character R Finger3
-    400078: Character R Finger31
-    400080: Character R Finger32
-    400082: Character R Finger4
-    400084: Character R Finger41
-    400086: Character R Finger42
-    400088: Character R Foot
-    400090: Character R Forearm
-    400092: Character R Hand
-    400094: Character R Thigh
-    400096: Character R Toe0
-    400098: Character R UpperArm
-    400100: Character Spine
-    400102: Character Spine1
-    400104: Character Spine2
-    400106: //RootNode
-    7400000: Male Attack 1
-    7400002: Male Attack 2
-    7400004: Male Attack 3
-    9500000: //RootNode
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Character
+  - first:
+      1: 100002
+    second: Character Head
+  - first:
+      1: 100004
+    second: Character L Calf
+  - first:
+      1: 100006
+    second: Character L Clavicle
+  - first:
+      1: 100008
+    second: Character L Finger0
+  - first:
+      1: 100010
+    second: Character L Finger01
+  - first:
+      1: 100012
+    second: Character L Finger02
+  - first:
+      1: 100014
+    second: Character L Finger1
+  - first:
+      1: 100016
+    second: Character L Finger11
+  - first:
+      1: 100018
+    second: Character L Finger12
+  - first:
+      1: 100020
+    second: Character L Finger2
+  - first:
+      1: 100022
+    second: Character L Finger21
+  - first:
+      1: 100024
+    second: Character L Finger22
+  - first:
+      1: 100026
+    second: Character L Finger3
+  - first:
+      1: 100028
+    second: Character L Finger31
+  - first:
+      1: 100030
+    second: Character L Finger32
+  - first:
+      1: 100032
+    second: Character L Finger4
+  - first:
+      1: 100034
+    second: Character L Finger41
+  - first:
+      1: 100036
+    second: Character L Finger42
+  - first:
+      1: 100038
+    second: Character L Foot
+  - first:
+      1: 100040
+    second: Character L Forearm
+  - first:
+      1: 100042
+    second: Character L Hand
+  - first:
+      1: 100044
+    second: Character L Thigh
+  - first:
+      1: 100046
+    second: Character L Toe0
+  - first:
+      1: 100048
+    second: Character L UpperArm
+  - first:
+      1: 100050
+    second: Character Neck
+  - first:
+      1: 100052
+    second: Character Pelvis
+  - first:
+      1: 100054
+    second: Character R Calf
+  - first:
+      1: 100056
+    second: Character R Clavicle
+  - first:
+      1: 100058
+    second: Character R Finger0
+  - first:
+      1: 100060
+    second: Character R Finger01
+  - first:
+      1: 100062
+    second: Character R Finger02
+  - first:
+      1: 100064
+    second: Character R Finger1
+  - first:
+      1: 100066
+    second: Character R Finger11
+  - first:
+      1: 100068
+    second: Character R Finger12
+  - first:
+      1: 100070
+    second: Character R Finger2
+  - first:
+      1: 100072
+    second: Character R Finger21
+  - first:
+      1: 100074
+    second: Character R Finger22
+  - first:
+      1: 100076
+    second: Character R Finger3
+  - first:
+      1: 100078
+    second: Character R Finger31
+  - first:
+      1: 100080
+    second: Character R Finger32
+  - first:
+      1: 100082
+    second: Character R Finger4
+  - first:
+      1: 100084
+    second: Character R Finger41
+  - first:
+      1: 100086
+    second: Character R Finger42
+  - first:
+      1: 100088
+    second: Character R Foot
+  - first:
+      1: 100090
+    second: Character R Forearm
+  - first:
+      1: 100092
+    second: Character R Hand
+  - first:
+      1: 100094
+    second: Character R Thigh
+  - first:
+      1: 100096
+    second: Character R Toe0
+  - first:
+      1: 100098
+    second: Character R UpperArm
+  - first:
+      1: 100100
+    second: Character Spine
+  - first:
+      1: 100102
+    second: Character Spine1
+  - first:
+      1: 100104
+    second: Character Spine2
+  - first:
+      1: 100106
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Character
+  - first:
+      4: 400002
+    second: Character Head
+  - first:
+      4: 400004
+    second: Character L Calf
+  - first:
+      4: 400006
+    second: Character L Clavicle
+  - first:
+      4: 400008
+    second: Character L Finger0
+  - first:
+      4: 400010
+    second: Character L Finger01
+  - first:
+      4: 400012
+    second: Character L Finger02
+  - first:
+      4: 400014
+    second: Character L Finger1
+  - first:
+      4: 400016
+    second: Character L Finger11
+  - first:
+      4: 400018
+    second: Character L Finger12
+  - first:
+      4: 400020
+    second: Character L Finger2
+  - first:
+      4: 400022
+    second: Character L Finger21
+  - first:
+      4: 400024
+    second: Character L Finger22
+  - first:
+      4: 400026
+    second: Character L Finger3
+  - first:
+      4: 400028
+    second: Character L Finger31
+  - first:
+      4: 400030
+    second: Character L Finger32
+  - first:
+      4: 400032
+    second: Character L Finger4
+  - first:
+      4: 400034
+    second: Character L Finger41
+  - first:
+      4: 400036
+    second: Character L Finger42
+  - first:
+      4: 400038
+    second: Character L Foot
+  - first:
+      4: 400040
+    second: Character L Forearm
+  - first:
+      4: 400042
+    second: Character L Hand
+  - first:
+      4: 400044
+    second: Character L Thigh
+  - first:
+      4: 400046
+    second: Character L Toe0
+  - first:
+      4: 400048
+    second: Character L UpperArm
+  - first:
+      4: 400050
+    second: Character Neck
+  - first:
+      4: 400052
+    second: Character Pelvis
+  - first:
+      4: 400054
+    second: Character R Calf
+  - first:
+      4: 400056
+    second: Character R Clavicle
+  - first:
+      4: 400058
+    second: Character R Finger0
+  - first:
+      4: 400060
+    second: Character R Finger01
+  - first:
+      4: 400062
+    second: Character R Finger02
+  - first:
+      4: 400064
+    second: Character R Finger1
+  - first:
+      4: 400066
+    second: Character R Finger11
+  - first:
+      4: 400068
+    second: Character R Finger12
+  - first:
+      4: 400070
+    second: Character R Finger2
+  - first:
+      4: 400072
+    second: Character R Finger21
+  - first:
+      4: 400074
+    second: Character R Finger22
+  - first:
+      4: 400076
+    second: Character R Finger3
+  - first:
+      4: 400078
+    second: Character R Finger31
+  - first:
+      4: 400080
+    second: Character R Finger32
+  - first:
+      4: 400082
+    second: Character R Finger4
+  - first:
+      4: 400084
+    second: Character R Finger41
+  - first:
+      4: 400086
+    second: Character R Finger42
+  - first:
+      4: 400088
+    second: Character R Foot
+  - first:
+      4: 400090
+    second: Character R Forearm
+  - first:
+      4: 400092
+    second: Character R Hand
+  - first:
+      4: 400094
+    second: Character R Thigh
+  - first:
+      4: 400096
+    second: Character R Toe0
+  - first:
+      4: 400098
+    second: Character R UpperArm
+  - first:
+      4: 400100
+    second: Character Spine
+  - first:
+      4: 400102
+    second: Character Spine1
+  - first:
+      4: 400104
+    second: Character Spine2
+  - first:
+      4: 400106
+    second: //RootNode
+  - first:
+      74: 7400000
+    second: Male Attack 1
+  - first:
+      74: 7400002
+    second: Male Attack 2
+  - first:
+      74: 7400004
+    second: Male Attack 3
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -136,6 +358,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -147,6 +370,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Male Attack 1
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -167,7 +391,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.23844963
+        functionName: MeleeAttackStart
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.38021109
+        functionName: MeleeAttackEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -175,6 +413,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Male Attack 2
       takeName: Take 001
+      internalID: 0
       firstFrame: 40
       lastFrame: 70
       wrapMode: 0
@@ -203,6 +442,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Male Attack 3
       takeName: Take 001
+      internalID: 0
       firstFrame: 80
       lastFrame: 110
       wrapMode: 0
@@ -234,21 +474,31 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -256,10 +506,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: Character Pelvis
       humanName: Hips
@@ -960,15 +1213,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 7e30eee73c241d5448ce0ac372cf6602,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 7e30eee73c241d5448ce0ac372cf6602, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

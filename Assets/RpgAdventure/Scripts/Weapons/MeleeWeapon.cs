@@ -50,6 +50,11 @@ namespace RpgAdventure
             }
         }
 
+        public void EndAttack()
+        {
+            m_IsAttack = false;
+        }
+
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {

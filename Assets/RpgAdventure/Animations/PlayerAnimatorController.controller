@@ -138,13 +138,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MeleeAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -251,12 +251,12 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -6832575281085349469}
-    second:
-    - {fileID: -6959633796919862825}
   - first: {fileID: -3256777612952342785}
     second:
     - {fileID: 9167893071760240356}
+  - first: {fileID: -6832575281085349469}
+    second:
+    - {fileID: -6959633796919862825}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 150, y: -140, z: 0}
   m_EntryPosition: {x: 160, y: -40, z: 0}
