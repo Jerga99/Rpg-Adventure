@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IAttackAnimListener
 {
     private NavMeshAgent m_NavMeshAgent;
     private Animator m_Animator;
@@ -35,4 +36,7 @@ public class EnemyController : MonoBehaviour
     {
         m_NavMeshAgent.enabled = false;
     }
+
+    public void MeleeAttackStart() { }
+    public void MeleeAttackEnd() { }
 }
