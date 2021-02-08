@@ -49,13 +49,23 @@ namespace RpgAdventure
 
                         if (collider != null)
                         {
-                            Debug.Log("HIT HIT!");
+                            CheckDamage(collider, ap);
                         }
                     }
 
 
                     m_OriginAttackPos[0] = worldPos;
                 }
+            }
+        }
+
+        private void CheckDamage(Collider other, AttackPoint ap)
+        {
+            Damageable damageable = other.GetComponent<Damageable>();
+
+            if (damageable != null)
+            {
+                damageable.ApplyDamage();
             }
         }
 
