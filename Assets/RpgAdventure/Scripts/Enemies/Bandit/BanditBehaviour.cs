@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace RpgAdventure
 {
-    public class BanditBehaviour : MonoBehaviour
+    public class BanditBehaviour : MonoBehaviour, IMessageReceiver
     {
         public PlayerScanner playerScanner;
         public float timeToStopPursuit = 2.0f;
@@ -67,6 +67,11 @@ namespace RpgAdventure
             }
 
             CheckIfNearBase();
+        }
+
+        public void OnReceiveMessage(MessageType type)
+        {
+            Debug.Log("BANDIT BEAHVIOUR " + type);
         }
 
         private void StopPursuit()

@@ -8,24 +8,36 @@ namespace RpgAdventure
     {
         [Range(0, 360.0f)]
         public float hitAngle = 360.0f;
+        public float invulnerabilityTime = 0.5f;
         public int maxHitPoints;
         public int CurrentHitPoints { get; private set; }
         public List<MonoBehaviour> onDamageMessageReceivers;
 
-        public enum MessageType
-        {
-            DAMAGED,
-            DEAD
-        }
+        private bool m_IsInvulnerable = false;
+        private float m_TimeSinceLastHit = 0;
 
         private void Awake()
         {
             CurrentHitPoints = maxHitPoints;
         }
 
+        private void Update()
+        {
+            if (m_IsInvulnerable)
+            {
+                m_TimeSinceLastHit += Time.deltaTime;
+
+                if (m_TimeSinceLastHit >= invulnerabilityTime)
+                {
+                    m_IsInvulnerable = false;
+                    m_TimeSinceLastHit = 0;
+                }
+            }
+        }
+
         public void ApplyDamage(DamageMessage data)
         {
-            if (CurrentHitPoints <= 0)
+            if (CurrentHitPoints <= 0 || m_IsInvulnerable)
             {
                 return;
             }
@@ -38,6 +50,7 @@ namespace RpgAdventure
                 return;
             }
 
+            m_IsInvulnerable = true;
             CurrentHitPoints -= data.amount;
 
             var messageType =
@@ -45,9 +58,8 @@ namespace RpgAdventure
 
             for (int i = 0; i < onDamageMessageReceivers.Count; i++)
             {
-                var receiver = onDamageMessageReceivers[i];
-                Debug.Log(messageType);
-                Debug.Log(receiver);
+                var receiver = onDamageMessageReceivers[i] as IMessageReceiver;
+                receiver.OnReceiveMessage(messageType);
             }
 
         }
