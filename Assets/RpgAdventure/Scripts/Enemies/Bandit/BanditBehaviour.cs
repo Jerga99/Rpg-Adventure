@@ -22,7 +22,6 @@ namespace RpgAdventure
         private PlayerController m_FollowTarget;
         private EnemyController m_EnemyController;
 
-        private Animator m_Animator;
         private float m_TimeSinceLostTarget = 0;
         private Vector3 m_OriginPosition;
         private Quaternion m_OriginRotation;
@@ -35,8 +34,6 @@ namespace RpgAdventure
         private void Awake()
         {
             m_EnemyController = GetComponent<EnemyController>();
-            m_Animator = GetComponent<Animator>();
-
             m_OriginPosition = transform.position;
             m_OriginRotation = transform.rotation;
         }
@@ -87,7 +84,7 @@ namespace RpgAdventure
 
         private void OnReceiveDamage()
         {
-            m_Animator.SetTrigger(m_HashHurt);
+            m_EnemyController.Animator.SetTrigger(m_HashHurt);
         }
 
         private void StopPursuit()
@@ -97,7 +94,7 @@ namespace RpgAdventure
             if (m_TimeSinceLostTarget >= timeToStopPursuit)
             {
                 m_FollowTarget = null;
-                m_Animator.SetBool(m_HashInPursuit, false);
+                m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
                 StartCoroutine(WaitBeforeReturn());
             }
         }
@@ -124,12 +121,12 @@ namespace RpgAdventure
                 360 * Time.deltaTime);
 
             m_EnemyController.StopFollowTarget();
-            m_Animator.SetTrigger(m_HashAttack);
+            m_EnemyController.Animator.SetTrigger(m_HashAttack);
         }
 
         private void FollowTarget()
         {
-            m_Animator.SetBool(m_HashInPursuit, true);
+            m_EnemyController.Animator.SetBool(m_HashInPursuit, true);
             m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
         }
 
@@ -139,7 +136,7 @@ namespace RpgAdventure
             toBase.y = 0;
 
             bool nearBase = toBase.magnitude < 0.01f;
-            m_Animator.SetBool(m_HashNearBase, nearBase);
+            m_EnemyController.Animator.SetBool(m_HashNearBase, nearBase);
 
             if (nearBase)
             {
