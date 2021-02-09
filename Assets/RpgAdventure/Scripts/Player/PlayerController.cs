@@ -47,8 +47,9 @@ namespace RpgAdventure
             m_PlayerInput = GetComponent<PlayerInput>();
             m_Animator = GetComponent<Animator>();
             m_CameraController = Camera.main.GetComponent<CameraController>();
-
             s_Instance = this;
+
+            meleeWeapon.SetOwner(gameObject);
         }
 
         private void FixedUpdate()

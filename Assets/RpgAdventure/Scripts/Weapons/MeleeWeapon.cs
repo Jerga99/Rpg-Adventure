@@ -22,6 +22,7 @@ namespace RpgAdventure
         private bool m_IsAttack = false;
         private Vector3[] m_OriginAttackPos;
         private RaycastHit[] m_RayCastHitCache = new RaycastHit[32];
+        private GameObject m_Owner;
 
         private void FixedUpdate()
         {
@@ -73,8 +74,17 @@ namespace RpgAdventure
             if (damageable != null)
             {
                 Damageable.DamageMessage data;
-                damageable.ApplyDamage();
+                data.amount = damage;
+                data.damager = this;
+                data.damageSource = m_Owner.transform.position;
+
+                damageable.ApplyDamage(data);
             }
+        }
+
+        public void SetOwner(GameObject owner)
+        {
+            m_Owner = owner;
         }
 
         public void BeginAttack()

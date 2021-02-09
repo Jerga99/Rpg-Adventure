@@ -10,9 +10,12 @@ namespace RpgAdventure
         [Range(0, 360.0f)]
         public float hitAngle = 360.0f;
 
-        public void ApplyDamage()
+        public void ApplyDamage(DamageMessage data)
         {
-            //Debug.Log("Applying Damage!");
+            Debug.Log(data.amount);
+            Debug.Log(data.damager);
+            Debug.Log(data.damageSource);
+
         }
 
 #if UNITY_EDITOR
