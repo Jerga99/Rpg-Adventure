@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damageable : MonoBehaviour
+namespace RpgAdventure
 {
-    public int maxHitPoints;
-
-
-    public void ApplyDamage()
+    public partial class Damageable : MonoBehaviour
     {
-        //Debug.Log("Applying Damage!");
+        public int maxHitPoints;
+
+        public void ApplyDamage()
+        {
+            //Debug.Log("Applying Damage!");
+        }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace RpgAdventure
 {
     public class MeleeWeapon : MonoBehaviour
@@ -67,12 +68,11 @@ namespace RpgAdventure
                 return;
             }
 
-            Debug.Log("We are hitting correct layer");
-
             Damageable damageable = other.GetComponent<Damageable>();
 
             if (damageable != null)
             {
+                Damageable.DamageMessage data;
                 damageable.ApplyDamage();
             }
         }
