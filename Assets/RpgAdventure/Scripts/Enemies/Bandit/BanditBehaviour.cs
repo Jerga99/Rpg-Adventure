@@ -30,6 +30,7 @@ namespace RpgAdventure
         private readonly int m_HashInPursuit = Animator.StringToHash("InPursuit");
         private readonly int m_HashNearBase = Animator.StringToHash("NearBase");
         private readonly int m_HashAttack = Animator.StringToHash("Attack");
+        private readonly int m_HashHurt = Animator.StringToHash("Hurt");
 
         private void Awake()
         {
@@ -71,7 +72,22 @@ namespace RpgAdventure
 
         public void OnReceiveMessage(MessageType type)
         {
-            Debug.Log("BANDIT BEAHVIOUR " + type);
+            switch (type)
+            {
+                case MessageType.DEAD:
+                    Debug.Log("Should play dead animation");
+                    break;
+                case MessageType.DAMAGED:
+                    OnReceiveDamage();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void OnReceiveDamage()
+        {
+            m_Animator.SetTrigger(m_HashHurt);
         }
 
         private void StopPursuit()
