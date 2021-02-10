@@ -1577,6 +1577,7 @@ GameObject:
   - component: {fileID: 632667621}
   - component: {fileID: 7087370820473291090}
   - component: {fileID: 1957424421}
+  - component: {fileID: 493710248}
   m_Layer: 6
   m_Name: Bandit
   m_TagString: Untagged
@@ -1731,7 +1732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitAngle: 360
-  maxHitPoints: 100
+  invulnerabilityTime: 0.5
+  maxHitPoints: 20
   onDamageMessageReceivers:
   - {fileID: 9221836228462021114}
 --- !u!136 &1957424421
@@ -1748,6 +1750,19 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &493710248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359466674846650532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea411d1b9aca4e5d819c7c59666c02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdollPrefab: {fileID: 3512652319887247676, guid: 99eb06eed0e6a45128f9b6e520842314, type: 3}
 --- !u!1 &7359466900700284348
 GameObject:
   m_ObjectHideFlags: 0
