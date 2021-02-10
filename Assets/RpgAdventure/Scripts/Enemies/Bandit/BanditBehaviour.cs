@@ -30,6 +30,7 @@ namespace RpgAdventure
         private readonly int m_HashNearBase = Animator.StringToHash("NearBase");
         private readonly int m_HashAttack = Animator.StringToHash("Attack");
         private readonly int m_HashHurt = Animator.StringToHash("Hurt");
+        private readonly int m_HashDead = Animator.StringToHash("Dead");
 
         private void Awake()
         {
@@ -72,7 +73,7 @@ namespace RpgAdventure
             switch (type)
             {
                 case MessageType.DEAD:
-                    Debug.Log("Should play dead animation");
+                    OnDead();
                     break;
                 case MessageType.DAMAGED:
                     OnReceiveDamage();
@@ -80,6 +81,12 @@ namespace RpgAdventure
                 default:
                     break;
             }
+        }
+
+        private void OnDead()
+        {
+            m_EnemyController.StopFollowTarget();
+            m_EnemyController.Animator.SetTrigger(m_HashDead);
         }
 
         private void OnReceiveDamage()
