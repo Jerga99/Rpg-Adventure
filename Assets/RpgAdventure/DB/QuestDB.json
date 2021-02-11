@@ -1,0 +1,28 @@
+﻿[
+    {
+        "uid": "q-1",
+        "title": "Annoying Bandits!",
+        "description": "Deafeat two bandits located south of the camp",
+        "experience": 100,
+        "gold": 5,
+        "amount": 2,
+        "targets": [ "b-1" ],
+        "talkTo": null,
+        "explore": null,
+        "questGiver": "qg-1",
+        "type": 0
+    },
+    {
+        "uid": "q-2",
+        "title": "Stealing our money!",
+        "description": "Deafeat bandit leader located noth of the camp",
+        "experience": 200,
+        "gold": 15,
+        "amount": 1,
+        "targets": [ "b-2" ],
+        "talkTo": null,
+        "explore": null,
+        "questGiver": "qg-2",
+        "type": 0
+    }
+]
