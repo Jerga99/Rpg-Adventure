@@ -33,13 +33,11 @@ namespace RpgAdventure
 
         private void LoadQuestsFromDB()
         {
-            using (StreamReader reader = new StreamReader("Assets/RpgAdventure/DB/QuestDB.json"))
-            {
-                string json = reader.ReadToEnd();
-                var loadedQuests = JsonHelper.GetJsonArray<Quest>(json);
-                quests = new Quest[loadedQuests.Length];
-                quests = loadedQuests;
-            }
+            using StreamReader reader = new StreamReader("Assets/RpgAdventure/DB/QuestDB.json");
+            string json = reader.ReadToEnd();
+            var loadedQuests = JsonHelper.GetJsonArray<Quest>(json);
+            quests = new Quest[loadedQuests.Length];
+            quests = loadedQuests;
         }
     }
 }
