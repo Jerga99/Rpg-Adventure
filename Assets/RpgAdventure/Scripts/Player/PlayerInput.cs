@@ -66,9 +66,9 @@ namespace RpgAdventure
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 bool hasHit = Physics.Raycast(ray, out RaycastHit hit);
 
-                if (hasHit)
+                if (hasHit && hit.collider.CompareTag("QuestGiver"))
                 {
-                    Debug.Log("Has Hit With: " + hit.collider.name);
+                    Debug.Log("Clicking on the quest giver!");
                 }
             }
         }

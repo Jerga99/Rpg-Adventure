@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Female Quest Npc
       objectReference: {fileID: 0}
+    - target: {fileID: 7253531818941878572, guid: c73a0ceaea1a34809872dd153d32fa46, type: 3}
+      propertyPath: m_TagString
+      value: QuestGiver
+      objectReference: {fileID: 0}
     - target: {fileID: 7258922978580508646, guid: c73a0ceaea1a34809872dd153d32fa46, type: 3}
       propertyPath: m_RootOrder
       value: 0
