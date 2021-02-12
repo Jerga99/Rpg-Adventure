@@ -2852,6 +2852,7 @@ GameObject:
   - component: {fileID: 7258922978580508646}
   - component: {fileID: 7349570917863995778}
   - component: {fileID: 7292918163420013182}
+  - component: {fileID: -1396649370944246040}
   m_Layer: 0
   m_Name: Female Npc
   m_TagString: Untagged
@@ -2940,6 +2941,20 @@ MonoBehaviour:
     - prefab: {fileID: 100000, guid: 7e462abb283b73a4ba97438461785130, type: 3}
     slots: 4
   disabledGraySkeleton: {fileID: 0}
+--- !u!136 &-1396649370944246040
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253531818941878572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.84, z: 0}
 --- !u!1 &7253533949370147828
 GameObject:
   m_ObjectHideFlags: 0
