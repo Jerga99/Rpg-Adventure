@@ -32,6 +32,18 @@ namespace RpgAdventure
             }
         }
 
+        private void Start()
+        {
+            void TestMethod(out int number)
+            {
+                number = 200;
+            }
+
+            TestMethod(out int testNumber);
+
+            Debug.Log(testNumber);
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -41,9 +53,23 @@ namespace RpgAdventure
                 Input.GetAxis("Vertical")
             );
 
-            if (Input.GetButtonDown("Fire1") && !m_IsAttack)
+            bool isLeftMouseClick = Input.GetMouseButtonDown(0);
+            bool isRighMouseClick = Input.GetMouseButtonDown(1);
+
+            if (isLeftMouseClick && !m_IsAttack)
             {
                 StartCoroutine(AttackAndWait());
+            }
+
+            if (isRighMouseClick)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                bool hasHit = Physics.Raycast(ray, out RaycastHit hit);
+
+                if (hasHit)
+                {
+                    Debug.Log("Has Hit With: " + hit.collider.name);
+                }
             }
         }
 
