@@ -5,6 +5,8 @@ namespace RpgAdventure
 {
     public class PlayerInput : MonoBehaviour
     {
+        public float distanceToInteractWithNpc = 2.0f;
+
         private Vector3 m_Movement;
         private bool m_IsAttack;
 
@@ -32,18 +34,6 @@ namespace RpgAdventure
             }
         }
 
-        private void Start()
-        {
-            void TestMethod(out int number)
-            {
-                number = 200;
-            }
-
-            TestMethod(out int testNumber);
-
-            Debug.Log(testNumber);
-        }
-
         // Update is called once per frame
         void Update()
         {
@@ -56,20 +46,41 @@ namespace RpgAdventure
             bool isLeftMouseClick = Input.GetMouseButtonDown(0);
             bool isRighMouseClick = Input.GetMouseButtonDown(1);
 
-            if (isLeftMouseClick && !m_IsAttack)
+            if (isLeftMouseClick)
             {
-                StartCoroutine(AttackAndWait());
+                HandleLeftMouseBtnDown();
             }
 
             if (isRighMouseClick)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                bool hasHit = Physics.Raycast(ray, out RaycastHit hit);
+                HandleRightMouseBtnDown();
+            }
+        }
 
-                if (hasHit && hit.collider.CompareTag("QuestGiver"))
+        private void HandleLeftMouseBtnDown()
+        {
+            if (!m_IsAttack)
+            {
+                StartCoroutine(AttackAndWait());
+            }
+        }
+
+        private void HandleRightMouseBtnDown()
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool hasHit = Physics.Raycast(ray, out RaycastHit hit);
+
+            if (hasHit && hit.collider.CompareTag("QuestGiver"))
+            {
+                var distanceToTarget = (transform.position - hit.transform.position).magnitude;
+
+                if (distanceToTarget <= distanceToInteractWithNpc)
                 {
-                    Debug.Log("Clicking on the quest giver!");
+                    Debug.Log("Hello Emilia!");
                 }
+
+
+
             }
         }
 
