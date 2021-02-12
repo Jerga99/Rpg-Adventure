@@ -9,30 +9,12 @@ namespace RpgAdventure
 
         private Vector3 m_Movement;
         private bool m_IsAttack;
+        private bool m_IsTalk;
 
-        public Vector3 MoveInput
-        {
-            get
-            {
-                return m_Movement;
-            }
-        }
-
-        public bool IsMoveInput
-        {
-            get
-            {
-                return !Mathf.Approximately(MoveInput.magnitude, 0);
-            }
-        }
-
-        public bool IsAttack
-        {
-            get
-            {
-                return m_IsAttack;
-            }
-        }
+        public Vector3 MoveInput { get { return m_Movement; } }
+        public bool IsMoveInput { get { return !Mathf.Approximately(MoveInput.magnitude, 0); } }
+        public bool IsAttack { get { return m_IsAttack; } }
+        public bool IsTalk { get { return m_IsTalk; } }
 
         // Update is called once per frame
         void Update()
@@ -76,11 +58,8 @@ namespace RpgAdventure
 
                 if (distanceToTarget <= distanceToInteractWithNpc)
                 {
-                    Debug.Log("Hello Emilia!");
+                    m_IsTalk = true;
                 }
-
-
-
             }
         }
 
