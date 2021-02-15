@@ -65,12 +65,12 @@ namespace RpgAdventure
 
                 if (distanceToTarget <= distanceToInteractWithNpc)
                 {
-                    StartCoroutine(TriggerWait());
+                    StartCoroutine(TriggerTalk());
                 }
             }
         }
 
-        private IEnumerator TriggerWait()
+        private IEnumerator TriggerTalk()
         {
             m_IsTalk = true;
             yield return new WaitForSeconds(0.03f);
