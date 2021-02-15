@@ -9,6 +9,7 @@ namespace RpgAdventure
         public float maxDialogDistance;
         public GameObject dialogUI;
         public Text dialogHeaderText;
+        public Text dialogWelcomeText;
 
         private PlayerInput m_Player;
         private QuestGiver m_Npc;
@@ -56,8 +57,9 @@ namespace RpgAdventure
         private void StartDialog()
         {
             m_ActiveDialog = m_Npc.dialog;
-            dialogUI.SetActive(true);
             dialogHeaderText.text = m_Npc.name;
+            dialogWelcomeText.text = m_ActiveDialog.welcomeText;
+            dialogUI.SetActive(true);
         }
 
         private void StopDialog()

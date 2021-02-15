@@ -714,27 +714,40 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.welcomeText
-      value: Hello Stranger,
+      value: Hello Stranger, What brings you here?
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.data[0].text
-      value: There bandits around the down
+      value: 'I am looking for a job. '
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.data[1].text
+      value: Not your bussines!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[2].text
       value: Good bye
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.data[0].answer.text
-      value: I will take care of it
+      value: There are 2 bandits north of the town that are causing troubles to our
+        people. Could you take care of it?
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.data[1].answer.text
+      value: Get loss!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[2].answer.text
       value: Cya
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.questId
+      value: q-2
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.data[0].answer.forceDialogQuit
@@ -742,6 +755,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: dialog.queries.Array.data[1].answer.forceDialogQuit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[2].answer.forceDialogQuit
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3026638760994246141, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
@@ -1331,6 +1348,7 @@ MonoBehaviour:
   maxDialogDistance: 2
   dialogUI: {fileID: 1847997104}
   dialogHeaderText: {fileID: 143028081}
+  dialogWelcomeText: {fileID: 429938418}
 --- !u!4 &604412067
 Transform:
   m_ObjectHideFlags: 0
@@ -1927,7 +1945,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.20248261, y: 0.000000014592499, z: -0.0000000030172265, w: 0.9792859}
+  m_LocalRotation: {x: 0.20248258, y: -0.000000014592499, z: 0.000000003017226, w: 0.9792859}
   m_LocalPosition: {x: 63.079735, y: 7.081298, z: -75.32245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2835,7 +2853,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012662953}
-  m_LocalRotation: {x: 0.20248261, y: 0.000000014592495, z: -0.0000000030172256, w: 0.9792859}
+  m_LocalRotation: {x: 0.2024826, y: -3.4791224e-15, z: 2.7527348e-16, w: 0.9792859}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
