@@ -9,28 +9,33 @@ namespace RpgAdventure
         public GameObject dialogUI;
         public Text dialogHeaderText;
 
-        private bool m_HasActiveDialog;
+        private PlayerInput m_Player;
+        private GameObject m_Npc;
+        private Dialog m_ActiveDialog;
 
-        private void Awake()
+        public bool HasActiveDialog { get { return m_ActiveDialog != null; } }
+
+        private void Start()
         {
-            dialogUI.SetActive(false);
+            m_Player = PlayerInput.Instance;
         }
 
         private void Update()
         {
-            if (!m_HasActiveDialog &&
-                PlayerInput.Instance != null &&
-                PlayerInput.Instance.OptionClickTarget != null)
+            if (!HasActiveDialog &&
+                m_Player != null &&
+                m_Player.OptionClickTarget != null)
             {
-                if (PlayerInput.Instance.OptionClickTarget.CompareTag("QuestGiver"))
+                if (m_Player.OptionClickTarget.CompareTag("QuestGiver"))
                 {
+                    m_Npc = m_Player.OptionClickTarget.gameObject;
+
                     var distanceToTarget = Vector3.Distance(
-                    PlayerInput.Instance.transform.position,
-                    PlayerInput.Instance.OptionClickTarget.transform.position);
+                    m_Player.transform.position,
+                    m_Npc.transform.position);
 
                     if (distanceToTarget < 2.0f)
                     {
-                        Debug.Log("Starting Dialog!");
                         StartDialog();
                     }
                 }
@@ -39,9 +44,9 @@ namespace RpgAdventure
 
         private void StartDialog()
         {
-            m_HasActiveDialog = true;
+            m_ActiveDialog = m_Npc.GetComponent<QuestGiver>().dialog;
             dialogUI.SetActive(true);
-            dialogHeaderText.text = "Just Testing!";
+            dialogHeaderText.text = m_Npc.name;
         }
     }
 }
