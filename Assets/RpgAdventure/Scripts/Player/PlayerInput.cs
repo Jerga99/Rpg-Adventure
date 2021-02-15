@@ -5,8 +5,10 @@ namespace RpgAdventure
 {
     public class PlayerInput : MonoBehaviour
     {
+        public static PlayerInput Instance { get { return s_Instance; } }
         public float distanceToInteractWithNpc = 2.0f;
 
+        private static PlayerInput s_Instance;
         private Vector3 m_Movement;
         private bool m_IsAttack;
         private bool m_IsTalk;
@@ -15,6 +17,11 @@ namespace RpgAdventure
         public bool IsMoveInput { get { return !Mathf.Approximately(MoveInput.magnitude, 0); } }
         public bool IsAttack { get { return m_IsAttack; } }
         public bool IsTalk { get { return m_IsTalk; } }
+
+        private void Awake()
+        {
+            s_Instance = this;
+        }
 
         // Update is called once per frame
         void Update()
@@ -43,7 +50,7 @@ namespace RpgAdventure
         {
             if (!m_IsAttack)
             {
-                StartCoroutine(AttackAndWait());
+                StartCoroutine(TriggerAttack());
             }
         }
 
@@ -58,12 +65,19 @@ namespace RpgAdventure
 
                 if (distanceToTarget <= distanceToInteractWithNpc)
                 {
-                    m_IsTalk = true;
+                    StartCoroutine(TriggerWait());
                 }
             }
         }
 
-        private IEnumerator AttackAndWait()
+        private IEnumerator TriggerWait()
+        {
+            m_IsTalk = true;
+            yield return new WaitForSeconds(0.03f);
+            m_IsTalk = false;
+        }
+
+        private IEnumerator TriggerAttack()
         {
             m_IsAttack = true;
             yield return new WaitForSeconds(0.03f);
