@@ -556,6 +556,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2034704735}
     m_Modifications:
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.welcomeText
+      value: Hello Stranger,
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[0].text
+      value: There bandits around the down
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[1].text
+      value: Good bye
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.text
+      value: I will take care of it
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[1].answer.text
+      value: Cya
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.forceDialogQuit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393401156140023471, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
+      propertyPath: dialog.queries.Array.data[1].answer.forceDialogQuit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3026638760994246141, guid: 6894d19e26e8b4b25a9ab7de96ac8f9f, type: 3}
       propertyPath: m_Name
       value: Emilia
@@ -2219,7 +2251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012662953}
-  m_LocalRotation: {x: 0.2024826, y: -3.4791224e-15, z: 2.7527348e-16, w: 0.9792859}
+  m_LocalRotation: {x: 0.2024826, y: -2.6277397e-15, z: 3.5968134e-16, w: 0.9792859}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
