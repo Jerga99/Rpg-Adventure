@@ -11,12 +11,12 @@ namespace RpgAdventure
         private static PlayerInput s_Instance;
         private Vector3 m_Movement;
         private bool m_IsAttack;
-        private bool m_IsTalk;
+        private Collider m_OptionClickTarget;
 
+        public Collider OptionClickTarget { get { return m_OptionClickTarget; } }
         public Vector3 MoveInput { get { return m_Movement; } }
         public bool IsMoveInput { get { return !Mathf.Approximately(MoveInput.magnitude, 0); } }
         public bool IsAttack { get { return m_IsAttack; } }
-        public bool IsTalk { get { return m_IsTalk; } }
 
         private void Awake()
         {
@@ -59,22 +59,17 @@ namespace RpgAdventure
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             bool hasHit = Physics.Raycast(ray, out RaycastHit hit);
 
-            if (hasHit && hit.collider.CompareTag("QuestGiver"))
+            if (hasHit)
             {
-                var distanceToTarget = (transform.position - hit.transform.position).magnitude;
-
-                if (distanceToTarget <= distanceToInteractWithNpc)
-                {
-                    StartCoroutine(TriggerTalk());
-                }
+                StartCoroutine(TriggerOptionTarget(hit.collider));
             }
         }
 
-        private IEnumerator TriggerTalk()
+        private IEnumerator TriggerOptionTarget(Collider other)
         {
-            m_IsTalk = true;
+            m_OptionClickTarget = other;
             yield return new WaitForSeconds(0.03f);
-            m_IsTalk = false;
+            m_OptionClickTarget = null;
         }
 
         private IEnumerator TriggerAttack()
