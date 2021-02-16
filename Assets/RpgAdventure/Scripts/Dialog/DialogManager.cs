@@ -7,6 +7,7 @@ namespace RpgAdventure
 {
     public class DialogManager : MonoBehaviour
     {
+        public float timeToShowOptions = 2.0f;
         public float maxDialogDistance;
         public GameObject dialogUI;
         public Text dialogHeaderText;
@@ -18,6 +19,7 @@ namespace RpgAdventure
         private QuestGiver m_Npc;
         private Dialog m_ActiveDialog;
         private float m_OptionTopPosition;
+        private float m_TimerToShowOptions;
 
         const float c_DistanceBetweenOption = 32.0f;
 
@@ -48,7 +50,7 @@ namespace RpgAdventure
 
                     if (DialogDistance < maxDialogDistance)
                     {
-                        StartCoroutine(StartDialog());
+                        StartDialog();
                     }
                 }
             }
@@ -57,9 +59,20 @@ namespace RpgAdventure
             {
                 StopDialog();
             }
+
+            if (m_TimerToShowOptions > 0)
+            {
+                m_TimerToShowOptions += Time.deltaTime;
+
+                if (m_TimerToShowOptions >= timeToShowOptions)
+                {
+                    m_TimerToShowOptions = 0;
+                    DisplayDialogOptions();
+                }
+            }
         }
 
-        private IEnumerator StartDialog()
+        private void StartDialog()
         {
             m_ActiveDialog = m_Npc.dialog;
             dialogHeaderText.text = m_Npc.name;
@@ -67,18 +80,24 @@ namespace RpgAdventure
 
             ClearDialogOptions();
             DisplayAnswerText(m_ActiveDialog.welcomeText);
-            yield return new WaitForSeconds(2.0f);
-            if (HasActiveDialog)
-            {
-                HideAnswerText();
-                CreateDialogMenu();
-            }
+            TriggerDialogOptions();
         }
 
         private void DisplayAnswerText(string answerText)
         {
             dialogAnswerText.gameObject.SetActive(true);
             dialogAnswerText.text = answerText;
+        }
+
+        private void DisplayDialogOptions()
+        {
+            HideAnswerText();
+            CreateDialogMenu();
+        }
+
+        private void TriggerDialogOptions()
+        {
+            m_TimerToShowOptions = 0.001f;
         }
 
         private void HideAnswerText()
@@ -113,6 +132,7 @@ namespace RpgAdventure
         {
             m_Npc = null;
             m_ActiveDialog = null;
+            m_TimerToShowOptions = 0;
             dialogUI.SetActive(false);
         }
 
