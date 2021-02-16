@@ -64,11 +64,15 @@ namespace RpgAdventure
             m_ActiveDialog = m_Npc.dialog;
             dialogHeaderText.text = m_Npc.name;
             dialogUI.SetActive(true);
-            DisplayAnswerText(m_ActiveDialog.welcomeText);
 
+            ClearDialogOptions();
+            DisplayAnswerText(m_ActiveDialog.welcomeText);
             yield return new WaitForSeconds(2.0f);
-            HideAnswerText();
-            CreateDialogMenu();
+            if (HasActiveDialog)
+            {
+                HideAnswerText();
+                CreateDialogMenu();
+            }
         }
 
         private void DisplayAnswerText(string answerText)
@@ -110,6 +114,14 @@ namespace RpgAdventure
             m_Npc = null;
             m_ActiveDialog = null;
             dialogUI.SetActive(false);
+        }
+
+        private void ClearDialogOptions()
+        {
+            foreach (Transform child in dialogOptionList.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 }
