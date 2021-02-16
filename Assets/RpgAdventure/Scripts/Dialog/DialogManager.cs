@@ -48,7 +48,7 @@ namespace RpgAdventure
 
                     if (DialogDistance < maxDialogDistance)
                     {
-                        StartDialog();
+                        StartCoroutine(StartDialog());
                     }
                 }
             }
@@ -59,14 +59,27 @@ namespace RpgAdventure
             }
         }
 
-        private void StartDialog()
+        private IEnumerator StartDialog()
         {
             m_ActiveDialog = m_Npc.dialog;
             dialogHeaderText.text = m_Npc.name;
-            dialogAnswerText.text = m_ActiveDialog.welcomeText;
             dialogUI.SetActive(true);
+            DisplayAnswerText(m_ActiveDialog.welcomeText);
 
+            yield return new WaitForSeconds(2.0f);
+            HideAnswerText();
             CreateDialogMenu();
+        }
+
+        private void DisplayAnswerText(string answerText)
+        {
+            dialogAnswerText.gameObject.SetActive(true);
+            dialogAnswerText.text = answerText;
+        }
+
+        private void HideAnswerText()
+        {
+            dialogAnswerText.gameObject.SetActive(false);
         }
 
         private void CreateDialogMenu()
