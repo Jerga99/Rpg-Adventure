@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
 namespace RpgAdventure
 {
@@ -114,6 +115,7 @@ namespace RpgAdventure
             {
                 m_OptionTopPosition += c_DistanceBetweenOption;
                 var dialogOption = CreateDialogOption(query.text);
+                RegisterOptionClickHandler(dialogOption, query);
             }
         }
 
@@ -126,6 +128,22 @@ namespace RpgAdventure
             rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, m_OptionTopPosition, rt.rect.height);
 
             return buttonInstance;
+        }
+
+        private void RegisterOptionClickHandler(Button dialogOption, DialogQuery query)
+        {
+            EventTrigger trigger = dialogOption.gameObject.AddComponent<EventTrigger>();
+            var pointerDown = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+
+            pointerDown.callback.AddListener((e) =>
+            {
+                Debug.Log("Clicking on: " + query.text);
+            });
+
+            trigger.triggers.Add(pointerDown);
         }
 
         private void StopDialog()
