@@ -16,8 +16,10 @@ namespace RpgAdventure
 
         private PlayerInput m_Player;
         private QuestGiver m_Npc;
-
         private Dialog m_ActiveDialog;
+        private float m_OptionTopPosition;
+
+        const float c_DistanceBetweenOption = 32.0f;
 
         public bool HasActiveDialog { get { return m_ActiveDialog != null; } }
         public float DialogDistance
@@ -69,10 +71,12 @@ namespace RpgAdventure
 
         private void CreateDialogMenu()
         {
+            m_OptionTopPosition = 0;
             var queries = Array.FindAll(m_ActiveDialog.queries, query => !query.isAsked);
 
             foreach (var query in queries)
             {
+                m_OptionTopPosition += c_DistanceBetweenOption;
                 var dialogOption = CreateDialogOption(query.text);
             }
         }
@@ -81,6 +85,9 @@ namespace RpgAdventure
         {
             Button buttonInstance = Instantiate(dialogOptionPrefab, dialogOptionList.transform);
             buttonInstance.GetComponentInChildren<Text>().text = optionText;
+
+            RectTransform rt = buttonInstance.GetComponent<RectTransform>();
+            rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, m_OptionTopPosition, rt.rect.height);
 
             return buttonInstance;
         }
