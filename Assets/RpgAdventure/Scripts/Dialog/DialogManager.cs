@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 namespace RpgAdventure
 {
@@ -10,6 +11,8 @@ namespace RpgAdventure
         public GameObject dialogUI;
         public Text dialogHeaderText;
         public Text dialogAnswerText;
+        public GameObject dialogOptionList;
+        public Button dialogOptionPrefab;
 
         private PlayerInput m_Player;
         private QuestGiver m_Npc;
@@ -60,6 +63,26 @@ namespace RpgAdventure
             dialogHeaderText.text = m_Npc.name;
             dialogAnswerText.text = m_ActiveDialog.welcomeText;
             dialogUI.SetActive(true);
+
+            CreateDialogMenu();
+        }
+
+        private void CreateDialogMenu()
+        {
+            var queries = Array.FindAll(m_ActiveDialog.queries, query => !query.isAsked);
+
+            foreach (var query in queries)
+            {
+                var dialogOption = CreateDialogOption(query.text);
+            }
+        }
+
+        private Button CreateDialogOption(string optionText)
+        {
+            Button buttonInstance = Instantiate(dialogOptionPrefab, dialogOptionList.transform);
+            buttonInstance.GetComponentInChildren<Text>().text = optionText;
+
+            return buttonInstance;
         }
 
         private void StopDialog()
