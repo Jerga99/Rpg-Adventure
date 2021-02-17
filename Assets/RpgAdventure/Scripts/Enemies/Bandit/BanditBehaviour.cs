@@ -68,7 +68,7 @@ namespace RpgAdventure
             CheckIfNearBase();
         }
 
-        public void OnReceiveMessage(MessageType type)
+        public void OnReceiveMessage(MessageType type, Damageable sender, Damageable.DamageMessage msg)
         {
             switch (type)
             {

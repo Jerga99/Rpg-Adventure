@@ -60,7 +60,7 @@ namespace RpgAdventure
             for (int i = 0; i < onDamageMessageReceivers.Count; i++)
             {
                 var receiver = onDamageMessageReceivers[i] as IMessageReceiver;
-                receiver.OnReceiveMessage(messageType);
+                receiver.OnReceiveMessage(messageType, this, data);
             }
 
         }
