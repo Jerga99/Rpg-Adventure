@@ -75,9 +75,25 @@ namespace RpgAdventure
 
         private void CheckQuestWhenEnemyDead(Damageable sender, Damageable.DamageMessage msg)
         {
-            Debug.Log("Checking Quest Objective!");
-            Debug.Log(sender.name);
-            Debug.Log(msg.damageSource);
+            var questLog = msg.damageSource.GetComponent<QuestLog>();
+            if (questLog == null) { return; }
+
+            foreach (var quest in questLog.quests)
+            {
+                if (quest.status == QuestStatus.ACTIVE)
+                {
+                    if (quest.type == QuestType.HUNT)
+                    {
+                        quest.amount -= 1;
+
+                        if (quest.amount == 0)
+                        {
+                            quest.status = QuestStatus.COMPLETED;
+                            Debug.Log("Quest Has been completed!");
+                        }
+                    }
+                }
+            }
         }
     }
 }
