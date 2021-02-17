@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6082193327818550776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164732551280083020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6fa0b5cfb8b4e469f1b0f2d3b6ca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Uid: 15a3c295-da35-40a2-a2ff-3d8e104c128d
+--- !u!1001 &6996158204536240117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.welcomeText
+      value: hi there, are you looking for something?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[0].text
+      value: I head you  have some work for me
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].text
+      value: See you
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.text
+      value: Yes, you are right. We need to fight back the bandit leader.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].answer.text
+      value: Good bye
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.questId
+      value: q-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].answer.forceDialogQuit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403259268058806201, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: m_Name
+      value: Jana
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+--- !u!1 &3164732551280083020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5403259268058806201, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+  m_PrefabInstance: {fileID: 6996158204536240117}
+  m_PrefabAsset: {fileID: 0}

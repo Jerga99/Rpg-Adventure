@@ -63,7 +63,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: dialog.queries.Array.data[0].answer.questId
-      value: q-2
+      value: q-1
       objectReference: {fileID: 0}
     - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: dialog.queries.Array.data[1].answer.forceDialogQuit
