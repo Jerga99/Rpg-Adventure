@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 namespace RpgAdventure
 {
@@ -82,7 +83,8 @@ namespace RpgAdventure
             {
                 if (quest.status == QuestStatus.ACTIVE)
                 {
-                    if (quest.type == QuestType.HUNT)
+                    if (quest.type == QuestType.HUNT && Array.Exists(quest.targets,
+                        (targetUid) => sender.GetComponent<UniqueId>().Uid == targetUid))
                     {
                         quest.amount -= 1;
 
