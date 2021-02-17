@@ -140,7 +140,15 @@ namespace RpgAdventure
 
             pointerDown.callback.AddListener((e) =>
             {
-                Debug.Log("Clicking on: " + query.text);
+
+                if (!query.isAlwaysAsked)
+                {
+                    query.isAsked = true;
+                }
+
+                ClearDialogOptions();
+                DisplayAnswerText(query.answer.text);
+                TriggerDialogOptions();
             });
 
             trigger.triggers.Add(pointerDown);
