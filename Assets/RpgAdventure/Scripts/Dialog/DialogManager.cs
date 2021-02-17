@@ -21,6 +21,7 @@ namespace RpgAdventure
         private Dialog m_ActiveDialog;
         private float m_OptionTopPosition;
         private float m_TimerToShowOptions;
+        private bool m_ForceDialogQuit;
 
         const float c_DistanceBetweenOption = 32.0f;
 
@@ -68,7 +69,15 @@ namespace RpgAdventure
                 if (m_TimerToShowOptions >= timeToShowOptions)
                 {
                     m_TimerToShowOptions = 0;
-                    DisplayDialogOptions();
+
+                    if (m_ForceDialogQuit)
+                    {
+                        StopDialog();
+                    }
+                    else
+                    {
+                        DisplayDialogOptions();
+                    }
                 }
             }
         }
@@ -141,6 +150,11 @@ namespace RpgAdventure
             pointerDown.callback.AddListener((e) =>
             {
 
+                if (query.answer.forceDialogQuit)
+                {
+                    m_ForceDialogQuit = true;
+                }
+
                 if (!query.isAlwaysAsked)
                 {
                     query.isAsked = true;
@@ -159,6 +173,7 @@ namespace RpgAdventure
             m_Npc = null;
             m_ActiveDialog = null;
             m_TimerToShowOptions = 0;
+            m_ForceDialogQuit = false;
             dialogUI.SetActive(false);
         }
 
