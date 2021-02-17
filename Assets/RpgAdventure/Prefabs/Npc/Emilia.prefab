@@ -24,13 +24,62 @@ PrefabInstance:
       propertyPath: questionCursor
       value: 
       objectReference: {fileID: 2800000, guid: fb4a51c70df034ba09d46c515bfcac01, type: 3}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.welcomeText
+      value: Hello Stranger, What brings you here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[0].text
+      value: 'I am looking for a job. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].text
+      value: Not your bussines!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[2].text
+      value: Good bye
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.text
+      value: There are 2 bandits north of the town that are causing troubles to our
+        people. Could you take care of it?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].answer.text
+      value: Get loss!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[2].answer.text
+      value: Cya
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[2].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[0].answer.questId
+      value: q-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[1].answer.forceDialogQuit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741144632035558635, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
+      propertyPath: dialog.queries.Array.data[2].answer.forceDialogQuit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.61214
+      value: -8.494765
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38,7 +87,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.94458985
+      value: 0.7840755
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46,7 +95,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalRotation.y
@@ -54,7 +103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5397947411736512883, guid: 9ecb77dab608c4b40ab5935f6c89019d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

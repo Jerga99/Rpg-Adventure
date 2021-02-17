@@ -4203,6 +4203,7 @@ GameObject:
   - component: {fileID: 8597859999095756400}
   - component: {fileID: 8597859999095756401}
   - component: {fileID: 7194090890518515068}
+  - component: {fileID: 936252881}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4340,6 +4341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3240848046bc347dca1a834ef7284bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToInteractWithNpc: 2
 --- !u!114 &7194090890518515068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4352,7 +4354,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac5d40c5d0f745378fbf2b677802cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAngle: 360
+  invulnerabilityTime: 0.5
   maxHitPoints: 200
+  onDamageMessageReceivers: []
+--- !u!114 &936252881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263626216951219861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a879aa7c51b5d4804a5b837c9d7c326e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests: []
 --- !u!1 &3263627914110606275
 GameObject:
   m_ObjectHideFlags: 0

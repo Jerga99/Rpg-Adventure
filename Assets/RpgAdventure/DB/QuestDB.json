@@ -6,23 +6,26 @@
         "experience": 100,
         "gold": 5,
         "amount": 2,
-        "targets": [ "d0e17cba-ea9e-49cd-abe4-d87696fb72cb" ],
+        "targets": [
+            "08cce553-053e-4d7a-809a-68b5900fd1aa",
+            "24755702-8208-46c7-86c1-2df399125fcf"
+        ],
         "talkTo": null,
         "explore": null,
-        "questGiver": "other-quest-giver-id",
+        "questGiver": "72859c03-639f-489a-850e-3a26092861eb",
         "type": 0
     },
     {
         "uid": "q-2",
-        "title": "Stealing our money!",
+        "title": "Defeat the Bandit Leader!",
         "description": "Deafeat bandit leader located noth of the camp",
         "experience": 200,
         "gold": 15,
         "amount": 1,
-        "targets": [ "d0e17cba-ea9e-49cd-abe4-d87696fb72cb" ],
+        "targets": [ "24755702-8208-46c7-86c1-2df399125fcf" ],
         "talkTo": null,
         "explore": null,
-        "questGiver": "72859c03-639f-489a-850e-3a26092861eb",
+        "questGiver": "to-be-specified",
         "type": 0
     }
 ]
