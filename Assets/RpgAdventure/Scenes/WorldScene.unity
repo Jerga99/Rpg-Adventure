@@ -1148,7 +1148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534875510}
-  m_LocalRotation: {x: 0.18463638, y: 8.2709633e-16, z: -4.3391574e-16, w: 0.9828069}
+  m_LocalRotation: {x: 0.1846364, y: -0.000000014644965, z: 0.000000002751297, w: 0.9828069}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1910,6 +1910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a879aa7c51b5d4804a5b837c9d7c326e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quests: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,6 +3080,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1635067002}
     m_Modifications:
+    - target: {fileID: 7087370820473291090, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
+      propertyPath: onDamageMessageReceivers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087370820473291090, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
+      propertyPath: onDamageMessageReceivers.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7359466674846650532, guid: 0b499f7aab2d740ff8f1094fd273f41f, type: 3}
       propertyPath: m_Name
       value: Bandit

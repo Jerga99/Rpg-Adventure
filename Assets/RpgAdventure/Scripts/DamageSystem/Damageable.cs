@@ -19,6 +19,7 @@ namespace RpgAdventure
         private void Awake()
         {
             CurrentHitPoints = maxHitPoints;
+            onDamageMessageReceivers.Add(FindObjectOfType<QuestManager>());
         }
 
         private void Update()

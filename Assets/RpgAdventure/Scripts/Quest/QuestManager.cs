@@ -22,7 +22,7 @@ namespace RpgAdventure
     }
 
 
-    public class QuestManager : MonoBehaviour
+    public class QuestManager : MonoBehaviour, IMessageReceiver
     {
         public Quest[] quests;
 
@@ -63,6 +63,19 @@ namespace RpgAdventure
                     questGiver.quest = quest;
                 }
             }
+        }
+
+        public void OnReceiveMessage(MessageType type)
+        {
+            if (type == MessageType.DEAD)
+            {
+                CheckQuestWhenEnemyDead();
+            }
+        }
+
+        private void CheckQuestWhenEnemyDead()
+        {
+            Debug.Log("Checking Quest Objective!");
         }
     }
 }
