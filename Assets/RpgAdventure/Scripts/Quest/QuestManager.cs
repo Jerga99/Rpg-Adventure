@@ -65,11 +65,11 @@ namespace RpgAdventure
             }
         }
 
-        public void OnReceiveMessage(MessageType type, Damageable sender, Damageable.DamageMessage msg)
+        public void OnReceiveMessage(MessageType type, object sender, object msg)
         {
             if (type == MessageType.DEAD)
             {
-                CheckQuestWhenEnemyDead(sender, msg);
+                CheckQuestWhenEnemyDead((Damageable)sender, (Damageable.DamageMessage)msg);
             }
         }
 
@@ -77,7 +77,7 @@ namespace RpgAdventure
         {
             Debug.Log("Checking Quest Objective!");
             Debug.Log(sender.name);
-            Debug.Log(msg.damager);
+            Debug.Log(msg.damageSource);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace RpgAdventure
                 return;
             }
 
-            Vector3 positionToDamager = data.damageSource - transform.position;
+            Vector3 positionToDamager = data.damageSource.transform.position - transform.position;
             positionToDamager.y = 0;
 
             if (Vector3.Angle(transform.forward, positionToDamager) > hitAngle * 0.5f)
