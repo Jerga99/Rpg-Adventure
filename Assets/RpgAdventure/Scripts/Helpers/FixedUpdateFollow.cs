@@ -11,6 +11,7 @@ namespace RpgAdventure
         // Update is called once per frame
         void FixedUpdate()
         {
+            if (toFollow == null) { return; }
             transform.position = toFollow.position;
             transform.rotation = toFollow.rotation;
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5312122474131669129}
   - component: {fileID: -8028624137801234432}
+  - component: {fileID: 891523402}
   m_Layer: 0
   m_Name: ItemSpawner
   m_TagString: Untagged
@@ -44,7 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b900f8e9bbdd44abbe404138c786a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 3179941519515447056, guid: fca103e4e90a34793be68975ee1c8242, type: 3}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!65 &891523402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808765247649400301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7173345329310757795
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7173345329310757795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.54, y: -2.47, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5312122474131669129}

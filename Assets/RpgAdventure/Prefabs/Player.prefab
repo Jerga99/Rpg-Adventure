@@ -4205,7 +4205,7 @@ GameObject:
   - component: {fileID: 7194090890518515068}
   - component: {fileID: 936252881}
   - component: {fileID: 814727554}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4358,6 +4358,10 @@ MonoBehaviour:
   hitAngle: 360
   invulnerabilityTime: 0.5
   maxHitPoints: 200
+  experience: 0
+  playerActionReceivers:
+    serializedVersion: 2
+    m_Bits: 0
   onDamageMessageReceivers: []
 --- !u!114 &936252881
 MonoBehaviour:
