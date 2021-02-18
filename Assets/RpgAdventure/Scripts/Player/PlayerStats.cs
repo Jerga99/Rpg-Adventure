@@ -32,7 +32,7 @@ namespace RpgAdventure
         {
             if (type == MessageType.DEAD)
             {
-                GainExperience(100);
+                GainExperience((sender as Damageable).experience);
             }
         }
 
