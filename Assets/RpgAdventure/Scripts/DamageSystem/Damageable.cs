@@ -20,6 +20,7 @@ namespace RpgAdventure
         {
             CurrentHitPoints = maxHitPoints;
             onDamageMessageReceivers.Add(FindObjectOfType<QuestManager>());
+            onDamageMessageReceivers.Add(FindObjectOfType<PlayerStats>());
         }
 
         private void Update()

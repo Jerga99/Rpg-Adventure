@@ -4,7 +4,7 @@ using System;
 
 namespace RpgAdventure
 {
-    public class PlayerStats : MonoBehaviour
+    public class PlayerStats : MonoBehaviour, IMessageReceiver
     {
         public int maxLevel;
         public int currentLevel;
@@ -26,6 +26,19 @@ namespace RpgAdventure
                 var expToLevel = Convert.ToInt32(levelPow * levelCount);
                 availableLevels[i] = expToLevel;
             }
+        }
+
+        public void OnReceiveMessage(MessageType type, object sender, object msg)
+        {
+            if (type == MessageType.DEAD)
+            {
+                GainExperience(100);
+            }
+        }
+
+        private void GainExperience(int exp)
+        {
+            Debug.Log("Gaining Experience " + exp);
         }
     }
 }
