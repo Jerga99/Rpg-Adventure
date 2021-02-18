@@ -4204,6 +4204,7 @@ GameObject:
   - component: {fileID: 8597859999095756401}
   - component: {fileID: 7194090890518515068}
   - component: {fileID: 936252881}
+  - component: {fileID: 814727554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4371,6 +4372,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests: []
+--- !u!114 &814727554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263626216951219861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca22b923e17d8457082cc9b3e0e04037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLevel: 60
+  currentLevel: 0
+  currentExp: 0
+  availableLevels: 
 --- !u!1 &3263627914110606275
 GameObject:
   m_ObjectHideFlags: 0
