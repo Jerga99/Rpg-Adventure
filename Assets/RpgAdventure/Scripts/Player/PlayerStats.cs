@@ -44,7 +44,7 @@ namespace RpgAdventure
             }
         }
 
-        private void GainExperience(int gainedExp)
+        public void GainExperience(int gainedExp)
         {
             if (gainedExp > ExperienceToNextLevel)
             {

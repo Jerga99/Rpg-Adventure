@@ -26,11 +26,14 @@ namespace RpgAdventure
     public class QuestManager : MonoBehaviour, IMessageReceiver
     {
         public Quest[] quests;
+        private PlayerStats m_PlayerStats;
 
         private void Awake()
         {
             LoadQuestsFromDB();
             AssignQuests();
+
+            m_PlayerStats = FindObjectOfType<PlayerStats>();
         }
 
         private void LoadQuestsFromDB()
@@ -91,7 +94,7 @@ namespace RpgAdventure
                         if (quest.amount == 0)
                         {
                             quest.status = QuestStatus.COMPLETED;
-                            Debug.Log("Quest Has been completed!");
+                            m_PlayerStats.GainExperience(quest.experience);
                         }
                     }
                 }
