@@ -32,7 +32,22 @@ namespace RpgAdventure
 
         private void AddItem(GameObject item)
         {
-            Debug.Log(inventory.Count);
+            var inventorySlot = GetFreeSlot();
+            if (inventorySlot == null)
+            {
+                Debug.Log("Inventory is Full!");
+                return;
+            }
+
+            inventorySlot.Place(item);
+            Debug.Log("Added " + item.name);
+
         }
+
+        private InventorySlot GetFreeSlot()
+        {
+            return inventory.Find(slot => slot.itemName == null);
+        }
+
     }
 }

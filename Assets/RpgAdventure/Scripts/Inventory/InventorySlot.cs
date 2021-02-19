@@ -14,6 +14,12 @@ namespace RpgAdventure
         {
             this.index = index;
         }
+
+        public void Place(GameObject item)
+        {
+            itemName = item.name;
+            itemPrefab = item;
+        }
     }
 
 }
