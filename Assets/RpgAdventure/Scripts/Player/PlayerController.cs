@@ -94,9 +94,19 @@ namespace RpgAdventure
 
         public void UseItemFrom(InventorySlot slot)
         {
+            if (meleeWeapon != null)
+            {
+                if (slot.itemPrefab.name == meleeWeapon.name) { return; }
+                else
+                {
+                    Destroy(meleeWeapon.gameObject);
+                }
+            }
+
             meleeWeapon = Instantiate(slot.itemPrefab, transform)
                 .GetComponent<MeleeWeapon>();
             meleeWeapon.GetComponent<FixedUpdateFollow>().SetFolowee(attackHand);
+            meleeWeapon.name = slot.itemPrefab.name;
             meleeWeapon.SetOwner(gameObject);
         }
 

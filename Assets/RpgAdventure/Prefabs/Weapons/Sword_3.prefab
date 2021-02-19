@@ -97,9 +97,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   damage: 5
-  attackPoints: []
+  attackPoints:
+  - radius: 0.15
+    offset: {x: -0.12, y: 0.05, z: 0.61}
+    rootTransform: {fileID: 2018687936564909129}
+  - radius: 0.15
+    offset: {x: -0.18, y: 0.05, z: 0.33}
+    rootTransform: {fileID: 2018687936564909129}
 --- !u!114 &937473470260108652
 MonoBehaviour:
   m_ObjectHideFlags: 0
