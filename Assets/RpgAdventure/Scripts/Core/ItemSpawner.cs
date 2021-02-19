@@ -10,10 +10,12 @@ namespace RpgAdventure
         public LayerMask targetLayers;
         public UnityEvent<GameObject> onItemPickup;
 
-        void Start()
+        void Awake()
         {
             Instantiate(itemPrefab, transform);
             Destroy(transform.GetChild(0).gameObject);
+
+            onItemPickup.AddListener(FindObjectOfType<InventoryManager>().OnItemPickup);
         }
 
         private void OnTriggerEnter(Collider other)

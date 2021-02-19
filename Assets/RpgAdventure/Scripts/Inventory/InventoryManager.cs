@@ -9,7 +9,12 @@ namespace RpgAdventure
         public Dictionary<string, GameObject> inventory = new Dictionary<string, GameObject>();
         public int inventorySize;
 
-        public void AddItem(GameObject item)
+        public void OnItemPickup(GameObject item)
+        {
+            AddItem(item);
+        }
+
+        private void AddItem(GameObject item)
         {
             if (!inventory.ContainsKey(item.name))
             {
