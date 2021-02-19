@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 namespace RpgAdventure
 {
@@ -7,6 +8,7 @@ namespace RpgAdventure
     {
         public GameObject itemPrefab;
         public LayerMask targetLayers;
+        public UnityEvent<GameObject> onItemPickup;
 
         void Start()
         {
@@ -18,7 +20,7 @@ namespace RpgAdventure
         {
             if (0 != (targetLayers.value & 1 << other.gameObject.layer))
             {
-                FindObjectOfType<InventoryManager>().AddItem(itemPrefab);
+                onItemPickup.Invoke(itemPrefab);
                 Destroy(gameObject);
             }
         }
