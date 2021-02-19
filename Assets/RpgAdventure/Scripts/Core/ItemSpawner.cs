@@ -18,7 +18,7 @@ namespace RpgAdventure
         {
             if (0 != (targetLayers.value & 1 << other.gameObject.layer))
             {
-                Debug.Log("Adding Item");
+                FindObjectOfType<InventoryManager>().AddItem(itemPrefab);
                 Destroy(gameObject);
             }
         }
