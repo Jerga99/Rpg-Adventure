@@ -93,6 +93,11 @@ namespace RpgAdventure
             meleeWeapon.EndAttack();
         }
 
+        public void UseItemFrom(InventorySlot inventorySlot)
+        {
+            Debug.Log("Using item: " + inventorySlot.itemName);
+        }
+
         private void ComputeVerticalMovement()
         {
             m_VerticalSpeed = -gravity;

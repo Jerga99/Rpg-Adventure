@@ -18,17 +18,38 @@ namespace RpgAdventure
             CreateInventory(m_InventorySize);
         }
 
+        public void OnItemPickup(ItemSpawner spawner)
+        {
+            AddItemFrom(spawner);
+        }
+
         private void CreateInventory(int size)
         {
             for (int i = 0; i < size; i++)
             {
                 inventory.Add(new InventorySlot(i));
+                RegisterSlotHandler(i);
             }
         }
 
-        public void OnItemPickup(ItemSpawner spawner)
+        private void RegisterSlotHandler(int slotIndex)
         {
-            AddItemFrom(spawner);
+            var slotBtn = invetoryPanel
+                .GetChild(slotIndex)
+                .GetComponent<Button>();
+
+            slotBtn.onClick.AddListener(() =>
+            {
+                UseItem(slotIndex);
+            });
+        }
+
+        private void UseItem(int slotIndex)
+        {
+            var inventorySlot = GetSlotByIndex(slotIndex);
+            if (inventorySlot.itemPrefab == null) { return; }
+
+            PlayerController.Instance.UseItemFrom(inventorySlot);
         }
 
         private void AddItemFrom(ItemSpawner spawner)
@@ -49,6 +70,11 @@ namespace RpgAdventure
         private InventorySlot GetFreeSlot()
         {
             return inventory.Find(slot => slot.itemName == null);
+        }
+
+        private InventorySlot GetSlotByIndex(int index)
+        {
+            return inventory.Find(slot => slot.index == index);
         }
 
     }
