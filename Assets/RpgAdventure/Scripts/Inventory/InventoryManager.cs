@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace RpgAdventure
 {
@@ -25,22 +26,23 @@ namespace RpgAdventure
             }
         }
 
-        public void OnItemPickup(GameObject item)
+        public void OnItemPickup(ItemSpawner spawner)
         {
-            AddItem(item);
+            AddItemFrom(spawner);
         }
 
-        private void AddItem(GameObject item)
+        private void AddItemFrom(ItemSpawner spawner)
         {
             var inventorySlot = GetFreeSlot();
-            if (inventorySlot == null)
-            {
-                Debug.Log("Inventory is Full!");
-                return;
-            }
+            if (inventorySlot == null) { return; }
 
+            var item = spawner.itemPrefab;
             inventorySlot.Place(item);
-            Debug.Log("Added " + item.name);
+            invetoryPanel
+                .GetChild(inventorySlot.index)
+                .GetComponentInChildren<Text>().text = item.name;
+
+            Destroy(spawner.gameObject);
 
         }
 

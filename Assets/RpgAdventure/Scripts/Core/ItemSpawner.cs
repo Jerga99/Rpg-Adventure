@@ -8,7 +8,7 @@ namespace RpgAdventure
     {
         public GameObject itemPrefab;
         public LayerMask targetLayers;
-        public UnityEvent<GameObject> onItemPickup;
+        public UnityEvent<ItemSpawner> onItemPickup;
 
         void Awake()
         {
@@ -22,8 +22,7 @@ namespace RpgAdventure
         {
             if (0 != (targetLayers.value & 1 << other.gameObject.layer))
             {
-                onItemPickup.Invoke(itemPrefab);
-                Destroy(gameObject);
+                onItemPickup.Invoke(this);
             }
         }
     }
