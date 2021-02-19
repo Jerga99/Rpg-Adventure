@@ -4330,6 +4330,7 @@ MonoBehaviour:
   m_MaxRotationSpeed: 1200
   m_MinRotationSpeed: 800
   gravity: 10
+  attackHand: {fileID: 3268994095178565423}
 --- !u!114 &8597859999095756401
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ namespace RpgAdventure
         public float m_MaxRotationSpeed = 1200;
         public float m_MinRotationSpeed = 800;
         public float gravity = 20.0f;
+        public Transform attackHand;
 
 
         private static PlayerController s_Instance;
@@ -48,8 +49,6 @@ namespace RpgAdventure
             m_Animator = GetComponent<Animator>();
             m_CameraController = Camera.main.GetComponent<CameraController>();
             s_Instance = this;
-
-            meleeWeapon.SetOwner(gameObject);
         }
 
         private void FixedUpdate()
@@ -93,9 +92,12 @@ namespace RpgAdventure
             meleeWeapon.EndAttack();
         }
 
-        public void UseItemFrom(InventorySlot inventorySlot)
+        public void UseItemFrom(InventorySlot slot)
         {
-            Debug.Log("Using item: " + inventorySlot.itemName);
+            meleeWeapon = Instantiate(slot.itemPrefab, transform)
+                .GetComponent<MeleeWeapon>();
+            meleeWeapon.GetComponent<FixedUpdateFollow>().SetFolowee(attackHand);
+            meleeWeapon.SetOwner(gameObject);
         }
 
         private void ComputeVerticalMovement()

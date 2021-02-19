@@ -15,5 +15,10 @@ namespace RpgAdventure
             transform.position = toFollow.position;
             transform.rotation = toFollow.rotation;
         }
+
+        public void SetFolowee(Transform folowee)
+        {
+            toFollow = folowee;
+        }
     }
 }
