@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
-    public class PlayerController : MonoBehaviour, IAttackAnimListener
+    public class PlayerController : MonoBehaviour, IAttackAnimListener, IMessageReceiver
     {
         public static PlayerController Instance
         {
@@ -80,6 +80,16 @@ namespace RpgAdventure
             Vector3 movement = m_Animator.deltaPosition;
             movement += m_VerticalSpeed * Vector3.up * Time.fixedDeltaTime;
             m_ChController.Move(movement);
+        }
+
+        public void OnReceiveMessage(MessageType type, object sender, object msg)
+        {
+
+            if (type == MessageType.DAMAGED)
+            {
+                Debug.Log("Receiving Damage");
+                Debug.Log("Current health is: " + (sender as Damageable).CurrentHitPoints);
+            }
         }
 
         public void MeleeAttackStart()

@@ -4363,7 +4363,8 @@ MonoBehaviour:
   playerActionReceivers:
     serializedVersion: 2
     m_Bits: 0
-  onDamageMessageReceivers: []
+  onDamageMessageReceivers:
+  - {fileID: 8597859999095756400}
 --- !u!114 &936252881
 MonoBehaviour:
   m_ObjectHideFlags: 0
