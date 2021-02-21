@@ -39,6 +39,7 @@ namespace RpgAdventure
             m_OriginPosition = transform.position;
             m_OriginRotation = transform.rotation;
             meleeWeapon.SetOwner(gameObject);
+            meleeWeapon.SetTargetLayer(1 << PlayerController.Instance.gameObject.layer);
         }
 
         private void Update()

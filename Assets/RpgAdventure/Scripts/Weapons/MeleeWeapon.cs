@@ -82,6 +82,11 @@ namespace RpgAdventure
             }
         }
 
+        public void SetTargetLayer(LayerMask targetMask)
+        {
+            targetLayers = targetMask;
+        }
+
         public void SetOwner(GameObject owner)
         {
             m_Owner = owner;
