@@ -40,9 +40,13 @@ namespace RpgAdventure
         private float m_ForwardSpeed;
         private float m_VerticalSpeed;
 
+        // Animator Parameter Hashes
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
         private readonly int m_HashMeleeAttack = Animator.StringToHash("MeleeAttack");
         private readonly int m_HashDeath = Animator.StringToHash("Death");
+
+        // Animator Tag Hashes
+        private readonly int m_HashBlockInput = Animator.StringToHash("BlockInput");
 
         const float k_Acceleration = 20.0f;
         const float k_Deceleration = 35.0f;
@@ -62,6 +66,7 @@ namespace RpgAdventure
         private void FixedUpdate()
         {
             CacheAnimationState();
+            UpdateInputBlocking();
             ComputeForwardMovement();
             ComputeVerticalMovement();
             ComputeRotation();
@@ -187,6 +192,14 @@ namespace RpgAdventure
             m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
             m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
             m_IsAnimatorTransitioning = m_Animator.IsInTransition(0);
+        }
+
+        private void UpdateInputBlocking()
+        {
+            bool inputBlocked = m_CurrentStateInfo.tagHash == m_HashBlockInput && !m_IsAnimatorTransitioning;
+            inputBlocked |= m_NextStateInfo.tagHash == m_HashBlockInput;
+
+            Debug.Log(inputBlocked);
         }
     }
 }
