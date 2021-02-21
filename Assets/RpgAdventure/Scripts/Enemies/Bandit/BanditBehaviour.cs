@@ -4,9 +4,10 @@ using UnityEngine.AI;
 
 namespace RpgAdventure
 {
-    public class BanditBehaviour : MonoBehaviour, IMessageReceiver
+    public class BanditBehaviour : MonoBehaviour, IMessageReceiver, IAttackAnimListener
     {
         public PlayerScanner playerScanner;
+        public MeleeWeapon meleeWeapon;
         public float timeToStopPursuit = 2.0f;
         public float timeToWaitOnPursuit = 2.0f;
         public float attackDistance = 1.1f;
@@ -37,6 +38,7 @@ namespace RpgAdventure
             m_EnemyController = GetComponent<EnemyController>();
             m_OriginPosition = transform.position;
             m_OriginRotation = transform.rotation;
+            meleeWeapon.SetOwner(gameObject);
         }
 
         private void Update()
@@ -81,6 +83,16 @@ namespace RpgAdventure
                 default:
                     break;
             }
+        }
+
+        public void MeleeAttackStart()
+        {
+            meleeWeapon.BeginAttack();
+        }
+
+        public void MeleeAttackEnd()
+        {
+            meleeWeapon.EndAttack();
         }
 
         private void OnDead()

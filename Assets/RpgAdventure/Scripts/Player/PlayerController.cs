@@ -84,12 +84,18 @@ namespace RpgAdventure
 
         public void MeleeAttackStart()
         {
-            meleeWeapon.BeginAttack();
+            if (meleeWeapon != null)
+            {
+                meleeWeapon.BeginAttack();
+            }
         }
 
         public void MeleeAttackEnd()
         {
-            meleeWeapon.EndAttack();
+            if (meleeWeapon != null)
+            {
+                meleeWeapon.EndAttack();
+            }
         }
 
         public void UseItemFrom(InventorySlot slot)
