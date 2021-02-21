@@ -30,6 +30,7 @@ namespace RpgAdventure
         private CharacterController m_ChController;
         private Animator m_Animator;
         private CameraController m_CameraController;
+        private HudManager m_HudManager;
         private Quaternion m_TargetRotation;
 
         private float m_DesiredForwardSpeed;
@@ -48,7 +49,10 @@ namespace RpgAdventure
             m_PlayerInput = GetComponent<PlayerInput>();
             m_Animator = GetComponent<Animator>();
             m_CameraController = Camera.main.GetComponent<CameraController>();
+            m_HudManager = FindObjectOfType<HudManager>();
             s_Instance = this;
+
+            m_HudManager.SetMaxHealth(GetComponent<Damageable>().maxHitPoints);
         }
 
         private void FixedUpdate()
@@ -84,11 +88,9 @@ namespace RpgAdventure
 
         public void OnReceiveMessage(MessageType type, object sender, object msg)
         {
-
             if (type == MessageType.DAMAGED)
             {
-                Debug.Log("Receiving Damage");
-                Debug.Log("Current health is: " + (sender as Damageable).CurrentHitPoints);
+                m_HudManager.SetHealth((sender as Damageable).CurrentHitPoints);
             }
         }
 
