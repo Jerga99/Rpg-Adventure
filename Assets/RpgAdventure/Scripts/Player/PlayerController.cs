@@ -39,6 +39,7 @@ namespace RpgAdventure
 
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
         private readonly int m_HashMeleeAttack = Animator.StringToHash("MeleeAttack");
+        private readonly int m_HashDeath = Animator.StringToHash("Death");
 
         const float k_Acceleration = 20.0f;
         const float k_Deceleration = 35.0f;
@@ -91,6 +92,11 @@ namespace RpgAdventure
             if (type == MessageType.DAMAGED)
             {
                 m_HudManager.SetHealth((sender as Damageable).CurrentHitPoints);
+            }
+
+            if (type == MessageType.DEAD)
+            {
+                m_Animator.SetTrigger(m_HashDeath);
             }
         }
 
