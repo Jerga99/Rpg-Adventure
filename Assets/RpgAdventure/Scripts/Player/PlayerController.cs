@@ -24,7 +24,6 @@ namespace RpgAdventure
         public float gravity = 20.0f;
         public Transform attackHand;
 
-
         private static PlayerController s_Instance;
         private PlayerInput m_PlayerInput;
         private CharacterController m_ChController;
@@ -32,6 +31,10 @@ namespace RpgAdventure
         private CameraController m_CameraController;
         private HudManager m_HudManager;
         private Quaternion m_TargetRotation;
+
+        private AnimatorStateInfo m_CurrentStateInfo;
+        private AnimatorStateInfo m_NextStateInfo;
+        private bool m_IsAnimatorTransitioning;
 
         private float m_DesiredForwardSpeed;
         private float m_ForwardSpeed;
@@ -58,6 +61,7 @@ namespace RpgAdventure
 
         private void FixedUpdate()
         {
+            CacheAnimationState();
             ComputeForwardMovement();
             ComputeVerticalMovement();
             ComputeRotation();
@@ -176,6 +180,13 @@ namespace RpgAdventure
             }
 
             m_TargetRotation = targetRotation;
+        }
+
+        private void CacheAnimationState()
+        {
+            m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+            m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
+            m_IsAnimatorTransitioning = m_Animator.IsInTransition(0);
         }
     }
 }
