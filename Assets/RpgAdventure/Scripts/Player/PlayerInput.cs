@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace RpgAdventure
 {
@@ -66,10 +68,23 @@ namespace RpgAdventure
 
         private void HandleLeftMouseBtnDown()
         {
-            if (!m_IsAttack)
+            if (!m_IsAttack && !IsPointerOverUiElement())
             {
                 StartCoroutine(TriggerAttack());
             }
+        }
+
+        private bool IsPointerOverUiElement()
+        {
+            var eventData = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };
+
+            var results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+
+            return results.Count > 0;
         }
 
         private void HandleRightMouseBtnDown()
