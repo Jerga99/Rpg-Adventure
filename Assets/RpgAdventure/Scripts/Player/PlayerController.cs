@@ -198,8 +198,7 @@ namespace RpgAdventure
         {
             bool inputBlocked = m_CurrentStateInfo.tagHash == m_HashBlockInput && !m_IsAnimatorTransitioning;
             inputBlocked |= m_NextStateInfo.tagHash == m_HashBlockInput;
-
-            Debug.Log(inputBlocked);
+            m_PlayerInput.isPlayerControllerInputBlocked = inputBlocked;
         }
     }
 }

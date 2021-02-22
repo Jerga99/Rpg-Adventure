@@ -6,6 +6,7 @@ namespace RpgAdventure
     public class PlayerInput : MonoBehaviour
     {
         public static PlayerInput Instance { get { return s_Instance; } }
+        public bool isPlayerControllerInputBlocked;
         public float distanceToInteractWithNpc = 2.0f;
 
         private static PlayerInput s_Instance;
@@ -14,9 +15,26 @@ namespace RpgAdventure
         private Collider m_OptionClickTarget;
 
         public Collider OptionClickTarget { get { return m_OptionClickTarget; } }
-        public Vector3 MoveInput { get { return m_Movement; } }
+        public Vector3 MoveInput
+        {
+            get
+            {
+                if (isPlayerControllerInputBlocked)
+                {
+                    return Vector3.zero;
+                }
+                return m_Movement;
+            }
+        }
+
+        public bool IsAttack
+        {
+            get
+            {
+                return !isPlayerControllerInputBlocked && m_IsAttack;
+            }
+        }
         public bool IsMoveInput { get { return !Mathf.Approximately(MoveInput.magnitude, 0); } }
-        public bool IsAttack { get { return m_IsAttack; } }
 
         private void Awake()
         {
