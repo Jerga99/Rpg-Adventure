@@ -20,7 +20,7 @@ namespace RpgAdventure
 
         private void Awake()
         {
-            CurrentHitPoints = maxHitPoints;
+            SetInitialHealth();
 
             if (0 != (playerActionReceivers.value & 1 << gameObject.layer))
             {
@@ -41,6 +41,11 @@ namespace RpgAdventure
                     m_TimeSinceLastHit = 0;
                 }
             }
+        }
+
+        public void SetInitialHealth()
+        {
+            CurrentHitPoints = maxHitPoints;
         }
 
         public void ApplyDamage(DamageMessage data)

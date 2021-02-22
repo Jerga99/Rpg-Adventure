@@ -26,6 +26,7 @@ namespace RpgAdventure
 
         private static PlayerController s_Instance;
         private PlayerInput m_PlayerInput;
+        private Damageable m_Damageable;
         private CharacterController m_ChController;
         private Animator m_Animator;
         private CameraController m_CameraController;
@@ -57,11 +58,12 @@ namespace RpgAdventure
             m_ChController = GetComponent<CharacterController>();
             m_PlayerInput = GetComponent<PlayerInput>();
             m_Animator = GetComponent<Animator>();
+            m_Damageable = GetComponent<Damageable>();
             m_CameraController = Camera.main.GetComponent<CameraController>();
             m_HudManager = FindObjectOfType<HudManager>();
             s_Instance = this;
 
-            m_HudManager.SetMaxHealth(GetComponent<Damageable>().maxHitPoints);
+            m_HudManager.SetMaxHealth(m_Damageable.maxHitPoints);
         }
 
         private void FixedUpdate()
@@ -133,6 +135,8 @@ namespace RpgAdventure
         public void StartRespawn()
         {
             transform.position = Vector3.zero;
+            m_HudManager.SetHealth(m_Damageable.maxHitPoints);
+            m_Damageable.SetInitialHealth();
         }
 
         public void FinishRespawn()
