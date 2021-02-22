@@ -35,6 +35,7 @@ namespace RpgAdventure
         private AnimatorStateInfo m_CurrentStateInfo;
         private AnimatorStateInfo m_NextStateInfo;
         private bool m_IsAnimatorTransitioning;
+        private bool m_IsRespawning;
 
         private float m_DesiredForwardSpeed;
         private float m_ForwardSpeed;
@@ -91,6 +92,8 @@ namespace RpgAdventure
 
         private void OnAnimatorMove()
         {
+            if (m_IsRespawning) { return; }
+
             Vector3 movement = m_Animator.deltaPosition;
             movement += m_VerticalSpeed * Vector3.up * Time.fixedDeltaTime;
             m_ChController.Move(movement);
@@ -105,6 +108,7 @@ namespace RpgAdventure
 
             if (type == MessageType.DEAD)
             {
+                m_IsRespawning = true;
                 m_Animator.SetTrigger(m_HashDeath);
                 m_HudManager.SetHealth(0);
             }
@@ -128,8 +132,12 @@ namespace RpgAdventure
 
         public void StartRespawn()
         {
-            Debug.Log("Start Respawning!");
             transform.position = Vector3.zero;
+        }
+
+        public void FinishRespawn()
+        {
+            m_IsRespawning = false;
         }
 
         public void UseItemFrom(InventorySlot slot)
