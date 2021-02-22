@@ -106,6 +106,7 @@ namespace RpgAdventure
             if (type == MessageType.DEAD)
             {
                 m_Animator.SetTrigger(m_HashDeath);
+                m_HudManager.SetHealth(0);
             }
         }
 
@@ -123,6 +124,12 @@ namespace RpgAdventure
             {
                 meleeWeapon.EndAttack();
             }
+        }
+
+        public void StartRespawn()
+        {
+            Debug.Log("Start Respawning!");
+            transform.position = Vector3.zero;
         }
 
         public void UseItemFrom(InventorySlot slot)
