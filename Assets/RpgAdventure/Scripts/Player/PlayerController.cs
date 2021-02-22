@@ -16,6 +16,8 @@ namespace RpgAdventure
             }
         }
 
+        public bool IsRespawning { get { return m_IsRespawning; } }
+
         public MeleeWeapon meleeWeapon;
         public float maxForwardSpeed = 8.0f;
         public float rotationSpeed;

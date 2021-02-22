@@ -44,6 +44,13 @@ namespace RpgAdventure
 
         private void Update()
         {
+            if (PlayerController.Instance.IsRespawning)
+            {
+                GoToOriginalSpot();
+                CheckIfNearBase();
+                return;
+            }
+
             GuardPosition();
         }
 
@@ -105,6 +112,13 @@ namespace RpgAdventure
         private void OnReceiveDamage()
         {
             m_EnemyController.Animator.SetTrigger(m_HashHurt);
+        }
+
+        private void GoToOriginalSpot()
+        {
+            m_FollowTarget = null;
+            m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
+            m_EnemyController.FollowTarget(m_OriginPosition);
         }
 
         private void StopPursuit()
