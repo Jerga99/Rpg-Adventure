@@ -1444,8 +1444,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundBank:
-    name: 
-    clips: []
+    name: Swing
+    clips:
+    - {fileID: 8300000, guid: 82a66f5d6bc124ba295cbf45801a1340, type: 3}
+    - {fileID: 8300000, guid: cfb4d85fb20d24d8f86ba8a66b6949c5, type: 3}
+    - {fileID: 8300000, guid: 73ab6aeef95a14fd68d6a2a1e3580985, type: 3}
+    - {fileID: 8300000, guid: 2ff9b64b4649c4db386ff548f8482b99, type: 3}
+    - {fileID: 8300000, guid: f4aca0f5c835c4aa09676682fd8407a5, type: 3}
+    - {fileID: 8300000, guid: 197b1dc21c43f4a98997416dd28bbac9, type: 3}
+    - {fileID: 8300000, guid: 89c3c7ad6899d447e85b6884372e39ea, type: 3}
+    - {fileID: 8300000, guid: 4f880d30534b048e581a72dde58dee42, type: 3}
+    - {fileID: 8300000, guid: feec6c03954724dd7ba91a0bc8625513, type: 3}
+    - {fileID: 8300000, guid: 79c0312136fb542c0b54701457a0f58b, type: 3}
+    - {fileID: 8300000, guid: cebccea2e19ed4073950fa63e686ad80, type: 3}
+    - {fileID: 8300000, guid: ba67858afc7b94cc5b99b00ac473ee6f, type: 3}
 --- !u!1 &465114063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1658,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534875510}
-  m_LocalRotation: {x: 0.18463638, y: 8.2709633e-16, z: -4.3391574e-16, w: 0.9828069}
+  m_LocalRotation: {x: 0.1846364, y: -0.000000014644965, z: 0.000000002751297, w: 0.9828069}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2904,7 +2916,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.20248261, y: 0.000000014592499, z: -0.0000000030172265, w: 0.9792859}
+  m_LocalRotation: {x: 0.20248258, y: -0.000000014592499, z: 0.000000003017226, w: 0.9792859}
   m_LocalPosition: {x: 63.079735, y: 7.081298, z: -75.32245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4882,7 +4894,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012662953}
-  m_LocalRotation: {x: 0.20248261, y: 0.000000014592495, z: -0.0000000030172256, w: 0.9792859}
+  m_LocalRotation: {x: 0.2024826, y: -2.6277397e-15, z: 3.5968134e-16, w: 0.9792859}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
