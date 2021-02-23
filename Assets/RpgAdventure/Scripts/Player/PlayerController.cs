@@ -25,6 +25,7 @@ namespace RpgAdventure
         public float m_MinRotationSpeed = 800;
         public float gravity = 20.0f;
         public Transform attackHand;
+        public RandomAudioPlayer sprintAudio;
 
         private static PlayerController s_Instance;
         private PlayerInput m_PlayerInput;
@@ -92,6 +93,8 @@ namespace RpgAdventure
             {
                 m_Animator.SetTrigger(m_HashMeleeAttack);
             }
+
+            PlaySprintAudio();
         }
 
         private void OnAnimatorMove()
@@ -220,6 +223,11 @@ namespace RpgAdventure
             bool inputBlocked = m_CurrentStateInfo.tagHash == m_HashBlockInput && !m_IsAnimatorTransitioning;
             inputBlocked |= m_NextStateInfo.tagHash == m_HashBlockInput;
             m_PlayerInput.isPlayerControllerInputBlocked = inputBlocked;
+        }
+
+        private void PlaySprintAudio()
+        {
+            sprintAudio.PlayRandomClip();
         }
     }
 }
