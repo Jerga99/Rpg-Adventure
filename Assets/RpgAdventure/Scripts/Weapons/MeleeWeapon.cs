@@ -18,6 +18,7 @@ namespace RpgAdventure
         public LayerMask targetLayers;
         public int damage = 10;
         public AttackPoint[] attackPoints = new AttackPoint[0];
+        public RandomAudioPlayer swingAudio;
 
         private bool m_IsAttack = false;
         private Vector3[] m_OriginAttackPos;
@@ -94,6 +95,7 @@ namespace RpgAdventure
 
         public void BeginAttack()
         {
+            swingAudio.PlayRandomClip();
             m_IsAttack = true;
             m_OriginAttackPos = new Vector3[attackPoints.Length];
 

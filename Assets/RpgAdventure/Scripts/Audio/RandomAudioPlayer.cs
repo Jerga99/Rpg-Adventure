@@ -19,5 +19,18 @@ namespace RpgAdventure
         {
             m_AudioSource = GetComponent<AudioSource>();
         }
+
+        public void PlayRandomClip()
+        {
+            var clip = soundBank.clips[Random.Range(0, soundBank.clips.Length)];
+
+            if (clip == null)
+            {
+                return;
+            }
+
+            m_AudioSource.clip = clip;
+            m_AudioSource.Play();
+        }
     }
 }
