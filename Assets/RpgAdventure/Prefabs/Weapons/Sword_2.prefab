@@ -108,6 +108,7 @@ MonoBehaviour:
     offset: {x: -0.14, y: 0.05, z: 0.37}
     rootTransform: {fileID: 5301037748417723382}
   swingAudio: {fileID: 8319276649502323908}
+  impactAudio: {fileID: 9176074536301005458}
 --- !u!114 &7535252327224985292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4553206105368461376, guid: 0ced4960a023340afab4db55e8150075, type: 3}
   m_PrefabInstance: {fileID: 5495586564943625211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9176074536301005458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3680507360291664233, guid: 0ced4960a023340afab4db55e8150075, type: 3}
+  m_PrefabInstance: {fileID: 5495586564943625211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c555f44c450466fa19a3d5160dbe1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8319276649502323908 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4553206105074175807, guid: 0ced4960a023340afab4db55e8150075, type: 3}
