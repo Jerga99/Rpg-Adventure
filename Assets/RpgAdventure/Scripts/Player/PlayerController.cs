@@ -49,6 +49,7 @@ namespace RpgAdventure
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
         private readonly int m_HashMeleeAttack = Animator.StringToHash("MeleeAttack");
         private readonly int m_HashDeath = Animator.StringToHash("Death");
+        private readonly int m_HashFootFall = Animator.StringToHash("FootFall");
 
         // Animator Tag Hashes
         private readonly int m_HashBlockInput = Animator.StringToHash("BlockInput");
@@ -227,7 +228,22 @@ namespace RpgAdventure
 
         private void PlaySprintAudio()
         {
-            sprintAudio.PlayRandomClip();
+            float footFallCurve = m_Animator.GetFloat(m_HashFootFall);
+
+            if (footFallCurve > 0.01f && !sprintAudio.isPlaying && sprintAudio.canPlay)
+            {
+                sprintAudio.isPlaying = true;
+                sprintAudio.canPlay = false;
+                sprintAudio.PlayRandomClip();
+            }
+            else if (sprintAudio.isPlaying)
+            {
+                sprintAudio.isPlaying = false;
+            }
+            else if (footFallCurve < 0.01f && !sprintAudio.canPlay)
+            {
+                sprintAudio.canPlay = true;
+            }
         }
     }
 }

@@ -12,6 +12,8 @@ namespace RpgAdventure
             public AudioClip[] clips;
         }
 
+        public bool canPlay;
+        public bool isPlaying;
         public SoundBank soundBank = new SoundBank();
         private AudioSource m_AudioSource;
 
